@@ -51,9 +51,9 @@ const Method = () => {
                     ease: "none",
                     scrollTrigger: {
                         trigger: ".method-pillars-container",
-                        start: "top center",
-                        end: "bottom center",
-                        scrub: 0.5,
+                        start: "top 60%", // Starts slightly earlier
+                        end: "bottom 60%", // Finishes earlier (before section leaves)
+                        scrub: 1,
                     }
                 }
             );
