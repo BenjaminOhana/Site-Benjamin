@@ -13,7 +13,7 @@
   }
 }
 
-/* Smooth scrolling for anchor links */
+/* Smooth scrolling handled by GSAP/Lenis if needed, or default for now */
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; REMOVED to prevent GSAP conflict */
 }

@@ -39,12 +39,15 @@ const Method = () => {
                 });
             }
 
-            // Progress Line Animation
-            // The line fills up as we scroll through the pillars container
+            // Mobile: simply animate width or height ensuring no layout thrashing if possible, 
+            // but for vertical line in absolute position, scaleY is best.
+            // We set transformOrigin to top so it grows downwards.
+            gsap.set(lineRef.current, { transformOrigin: "top center" });
+
             gsap.fromTo(lineRef.current,
-                { height: "0%" },
+                { scaleY: 0 },
                 {
-                    height: "100%",
+                    scaleY: 1,
                     ease: "none",
                     scrollTrigger: {
                         trigger: ".method-pillars-container",

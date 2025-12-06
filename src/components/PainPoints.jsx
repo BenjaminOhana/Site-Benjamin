@@ -34,9 +34,15 @@ const PainPoints = () => {
                 y: 20, // Lift 20px
                 opacity: 0,
                 duration: 0.8,
-                stagger: 0.15, // 0s, 0.15s, 0.30s, 0.45s
+                stagger: 0.05, // Faster stagger for snappier feel
                 ease: "power2.out"
             });
+
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (prefersReducedMotion) {
+                gsap.globalTimeline.timeScale(100); // Instantly finish animations
+            }
 
             // Transition Phrase Animation
             gsap.from(transitionRef.current, {

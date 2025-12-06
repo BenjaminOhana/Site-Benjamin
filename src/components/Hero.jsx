@@ -71,7 +71,7 @@ const Hero = () => {
                     {/* Text Content */}
                     <h1
                         ref={h1Ref}
-                        className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-8 opacity-0 drop-shadow-lg tracking-[-0.02em]"
+                        className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-8 opacity-0 drop-shadow-lg tracking-[-0.02em] will-change-transform"
                     >
                         Tu n'as pas besoin de crier pour être entendu
                     </h1>
@@ -123,7 +123,7 @@ const Hero = () => {
                 open={isCalendlyOpen}
                 onModalClose={() => setIsCalendlyOpen(false)}
             />
-        </section>
+        </section >
     );
 };
 
