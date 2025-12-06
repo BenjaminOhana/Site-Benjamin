@@ -101,7 +101,7 @@ const CTA = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 -mt-10 bg-[#FAF8F5] rounded-t-[24px] shadow-[0_-8px_30px_rgba(0,0,0,0.1)] px-6 py-10 md:mt-0 md:bg-transparent md:rounded-none md:shadow-none md:p-0 md:h-full md:flex md:items-center">
+            <div className="relative z-10 -mt-24 bg-[linear-gradient(to_bottom,transparent_0%,#FAF8F5_20%,#FAF8F5_100%)] px-6 pt-12 pb-12 md:mt-0 md:bg-none md:p-0 md:h-full md:flex md:items-center">
                 <div className="container mx-auto md:px-6 flex flex-col md:flex-row md:justify-start w-full">
                     <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
 
@@ -120,15 +120,15 @@ const CTA = () => {
                             {/* Intro */}
                             <p
                                 ref={introRef}
-                                className="text-lg text-[#52525B] italic mb-8"
+                                className="text-lg text-[#52525B] italic mt-8 mb-0 md:mb-8 text-center"
                             >
                                 Je t'offre 30 minutes. On regarde ensemble :
                             </p>
 
-                            {/* Bullets */}
+                            {/* Bullets (Centered on Mobile, List on Desktop) */}
                             <ul
                                 ref={bulletsRef}
-                                className="text-base text-[#1D1D1F] font-semibold text-left mx-auto max-w-sm space-y-3 mb-12 list-disc pl-5 marker:text-[#B94A2F]"
+                                className="text-base text-[#1D1D1F] font-semibold mt-6 md:mt-0 mb-0 md:mb-12 space-y-3 md:space-y-3 text-center list-none pl-0 md:text-left md:mx-auto md:max-w-sm md:list-disc md:pl-5 md:marker:text-[#B94A2F]"
                             >
                                 <li>Où tu en es vraiment</li>
                                 <li>Ce qui coince</li>
@@ -137,7 +137,7 @@ const CTA = () => {
                             </ul>
 
                             {/* CTA Container */}
-                            <div ref={ctaContainerRef} className="flex flex-col items-center">
+                            <div ref={ctaContainerRef} className="flex flex-col items-center mt-10 md:mt-0">
                                 <button
                                     onClick={() => setIsCalendlyOpen(true)}
                                     className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full md:w-auto"
