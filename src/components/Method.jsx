@@ -99,8 +99,8 @@ const Method = () => {
                             alt="Benjamin travaillant"
                             className="w-full h-full object-cover object-[center_25%] scale-110 md:scale-100 md:object-center transition-transform duration-700"
                         />
-                        {/* Overall Overlay */}
-                        <div className="absolute inset-0 bg-black/10"></div>
+                        {/* Overall Overlay - Removed as requested to keep image clear */}
+                        {/* <div className="absolute inset-0 bg-black/10"></div> */}
 
                         {/* Bottom Gradient Transition */}
                         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FAF8F5] to-transparent"></div>
@@ -108,11 +108,12 @@ const Method = () => {
 
                     {/* Citation Overlay on Image */}
                     <div className="absolute inset-0 flex items-start justify-center p-8 pt-12 md:items-center md:pt-0">
-                        {/* Darker radial background behind text for readability */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.5)_0%,_transparent_70%)]"></div>
 
-                        <div ref={citationRef} className="relative z-10">
-                            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center leading-tight drop-shadow-xl max-w-lg">
+                        <div ref={citationRef} className="relative z-10 max-w-lg">
+                            {/* Localized dark zone behind text */}
+                            <div className="absolute inset-0 bg-black/40 blur-3xl -z-10 rounded-full scale-125 transform translate-y-2"></div>
+
+                            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center leading-tight drop-shadow-xl">
                                 "Ce qui se voit dehors se construit d'abord dedans."
                             </h2>
                         </div>
