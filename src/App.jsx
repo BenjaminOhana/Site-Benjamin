@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import PainPoints from './components/PainPoints';
 import Story from './components/Story';
+import Transition from './components/Transition';
 import Method from './components/Method';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -26,6 +27,7 @@ function App() {
         <Hero />
         <PainPoints />
         <Story />
+        <Transition />
         <Method />
         <Testimonials />
         <CTA />
