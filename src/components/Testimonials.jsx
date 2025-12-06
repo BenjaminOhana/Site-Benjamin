@@ -92,9 +92,12 @@ const Testimonials = () => {
             <div className="container mx-auto px-6 h-full flex flex-col items-center justify-center">
 
                 {/* Transition Phrase (Fixed at top of section context) */}
-                <h2 className="text-xl md:text-2xl font-heading text-[#1D1D1F] italic text-center mb-12 md:mb-16 px-4 absolute top-24 md:top-32 w-full max-w-3xl z-10">
-                    "Ils ont choisi de rayonner en restant alignés."
-                </h2>
+                <div className="absolute top-24 md:top-32 w-full max-w-4xl z-10 flex flex-col items-center px-4 text-center">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic mb-6 leading-tight">
+                        "Ils ont choisi de rayonner en restant alignés."
+                    </h2>
+                    <div className="w-24 h-1 bg-terracotta rounded-full"></div>
+                </div>
 
                 {/* Stacking Cards Container */}
                 <div className="relative w-full max-w-md md:max-w-2xl h-[400px] md:h-[500px] flex items-center justify-center mt-20 md:mt-0">
