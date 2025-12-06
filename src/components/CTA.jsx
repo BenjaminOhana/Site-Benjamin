@@ -230,7 +230,7 @@ const CTA = () => {
             </div>
 
             <PopupModal
-                url="https://calendly.com/ton-lien-calendly"
+                url="https://calendly.com/benjamin-entrepreneuraligne/30min?month=2025-12"
                 rootElement={document.getElementById("root")}
                 text="Réserver mon appel clarté"
                 textColor="#ffffff"
