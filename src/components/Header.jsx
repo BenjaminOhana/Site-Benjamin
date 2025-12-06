@@ -113,12 +113,12 @@ const Header = () => {
 
             {/* Mobile Sticky CTA */}
             <div
-                className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-cream/80 backdrop-blur-md p-4 border-t border-border flex justify-center transition-transform duration-300 ${shouldShowSticky ? 'translate-y-0' : 'translate-y-full'
+                className={`md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-cream/90 backdrop-blur-md px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border flex justify-center transition-transform duration-300 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] ${shouldShowSticky ? 'translate-y-0' : 'translate-y-[120%]'
                     }`}
             >
                 <button
                     onClick={() => setIsCalendlyOpen(true)}
-                    className="w-full max-w-xs bg-sienna hover:bg-sienna-hover text-white px-6 py-3 rounded-full font-bold shadow-lg"
+                    className="w-full max-w-sm bg-sienna hover:bg-sienna-hover text-white px-8 py-4 rounded-full font-bold shadow-lg text-xl active:scale-95 transition-transform"
                 >
                     Réserver mon appel clarté
                 </button>

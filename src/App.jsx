@@ -13,6 +13,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Prevent mobile address bar resize from triggering heavy refreshes
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 function App() {
   // Smooth scroll setup for anchor links is handled by CSS scroll-behavior: smooth
 

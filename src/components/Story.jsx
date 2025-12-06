@@ -56,7 +56,7 @@ const Story = () => {
                     {/* Image */}
                     {/* Mobile: Sticky, 60vh, Full Width, No Radius */}
                     {/* Desktop: Static, 2/5 width, Rounded, Shadow */}
-                    <div className="w-full md:w-2/5 sticky top-0 h-[60vh] md:static md:h-auto z-0">
+                    <div className="w-full md:w-2/5 sticky top-0 h-[60dvh] md:static md:h-auto z-0">
                         <div ref={imageRef} className="w-full h-full md:relative md:rounded-2xl md:overflow-hidden md:shadow-[0_12px_40px_rgba(185,74,47,0.10)] md:border md:border-[#E5E0D8] md:aspect-[3/4]">
                             <img
                                 src={storyImage}
