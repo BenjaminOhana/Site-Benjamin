@@ -92,12 +92,12 @@ const Method = () => {
             <div className="flex flex-col md:flex-row">
 
                 {/* Left: Image (Sticky on Desktop) */}
-                <div className="method-image-container w-full md:w-1/2 h-[50vh] md:h-screen relative md:sticky md:top-0">
+                <div className="method-image-container w-full md:w-1/2 h-[50vh] md:h-screen relative md:sticky md:top-0 overflow-hidden">
                     <div className="absolute inset-0">
                         <img
                             src={methodImage}
                             alt="Benjamin travaillant"
-                            className="w-full h-full object-cover object-[center_70%]"
+                            className="w-full h-full object-cover object-[center_25%] scale-110 md:scale-100 md:object-center transition-transform duration-700"
                         />
                         {/* Overall Overlay */}
                         <div className="absolute inset-0 bg-black/10"></div>
@@ -107,7 +107,7 @@ const Method = () => {
                     </div>
 
                     {/* Citation Overlay on Image */}
-                    <div className="absolute inset-0 flex items-start justify-center p-8 pt-32">
+                    <div className="absolute inset-0 flex items-start justify-center p-8 pt-24 md:items-center md:pt-0">
                         {/* Darker radial background behind text for readability */}
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.5)_0%,_transparent_70%)]"></div>
 
