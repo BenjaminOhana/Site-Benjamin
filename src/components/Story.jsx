@@ -46,13 +46,18 @@ const Story = () => {
     }, []);
 
     return (
-        <section id="story" ref={sectionRef} className="py-20 md:py-32 bg-cream overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+        <section id="story" ref={sectionRef} className="relative bg-[#FAF8F5] md:py-32 overflow-hidden">
+
+            {/* Mobile: No container padding for full width image */}
+            {/* Desktop: Container with padding */}
+            <div className="w-full md:container md:mx-auto md:px-6">
+                <div className="flex flex-col md:flex-row md:items-center md:gap-20">
 
                     {/* Image */}
-                    <div className="w-full md:w-2/5 relative">
-                        <div ref={imageRef} className="relative rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(185,74,47,0.10)] border border-[#E5E0D8] aspect-[3/4]">
+                    {/* Mobile: Sticky, 60vh, Full Width, No Radius */}
+                    {/* Desktop: Static, 2/5 width, Rounded, Shadow */}
+                    <div className="w-full md:w-2/5 sticky top-0 h-[60vh] md:static md:h-auto z-0">
+                        <div ref={imageRef} className="w-full h-full md:relative md:rounded-2xl md:overflow-hidden md:shadow-[0_12px_40px_rgba(185,74,47,0.10)] md:border md:border-[#E5E0D8] md:aspect-[3/4]">
                             <img
                                 src={storyImage}
                                 alt="Benjamin portrait"
@@ -62,7 +67,19 @@ const Story = () => {
                     </div>
 
                     {/* Text Content */}
-                    <div ref={textRef} className="w-full md:w-3/5 flex flex-col space-y-8 md:space-y-12 pl-0 md:pl-12">
+                    {/* Mobile: Overlap (-mt-8), Glassmorphism, Rounded Top, Shadow */}
+                    {/* Desktop: Normal Flow, Transparent, No Shadow */}
+                    <div ref={textRef} className="
+                        relative z-10 
+                        w-full md:w-3/5 
+                        -mt-[30px] md:mt-0 
+                        bg-[#FAF8F5]/95 md:bg-transparent 
+                        backdrop-blur-md md:backdrop-blur-none 
+                        rounded-t-3xl md:rounded-none 
+                        px-6 py-10 md:p-0 md:pl-12 
+                        shadow-[0_-8px_30px_rgba(0,0,0,0.1)] md:shadow-none
+                        flex flex-col space-y-8 md:space-y-12
+                    ">
                         <p className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-anthracite leading-tight">
                             "Ce n'est pas la structure qui m'a sauvé — c'est l'alignement.
                         </p>
