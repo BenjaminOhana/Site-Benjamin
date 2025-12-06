@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
-import ctaBg from '../assets/images/cta-bg.jpg';
+import ctaBgMobile from '../assets/images/cta-bg.jpg';
+import ctaBgDesktop from '../assets/images/cta-bg-desktop.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,9 +62,20 @@ const CTA = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: `url(${ctaBg})` }}
+            className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
         >
+            {/* Background Images */}
+            {/* Mobile */}
+            <div
+                className="absolute inset-0 bg-cover bg-center md:hidden"
+                style={{ backgroundImage: `url(${ctaBgMobile})` }}
+            ></div>
+            {/* Desktop */}
+            <div
+                className="absolute inset-0 bg-cover bg-center hidden md:block"
+                style={{ backgroundImage: `url(${ctaBgDesktop})` }}
+            ></div>
+
             {/* Heavy Overlay */}
             <div className="absolute inset-0 bg-[#FAF8F5]/85"></div>
 
