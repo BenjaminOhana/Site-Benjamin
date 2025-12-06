@@ -62,14 +62,13 @@ const CTA = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-[80vh] md:h-screen flex items-center overflow-hidden bg-[#FAF8F5]"
+            className="relative min-h-screen md:h-screen flex flex-col md:block overflow-hidden bg-[#FAF8F5]"
         >
-            {/* Mobile Background (No Overlay, Face visible) */}
+            {/* Mobile Top Image (50vh, No Overlay) */}
             <div
-                className="absolute inset-0 bg-cover bg-[center_30%] md:hidden"
+                className="h-[50vh] w-full bg-cover bg-[center_30%] md:hidden"
                 style={{ backgroundImage: `url(${ctaBgMobile})` }}
             ></div>
-            <div className="absolute inset-0 bg-[#FAF8F5]/85 md:hidden"></div>
 
             {/* Desktop Background (Full Width with Gradient) */}
             <div className="absolute inset-0 w-full h-full hidden md:block">
@@ -83,54 +82,56 @@ const CTA = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-end pb-12 md:pb-0 md:justify-center md:flex-row md:justify-start">
-                <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
+            <div className="relative z-10 -mt-10 bg-[#FAF8F5] rounded-t-[24px] shadow-[0_-8px_30px_rgba(0,0,0,0.1)] px-6 py-10 md:mt-0 md:bg-transparent md:rounded-none md:shadow-none md:p-0 md:h-full md:flex md:items-center">
+                <div className="container mx-auto md:px-6 flex flex-col md:flex-row md:justify-start w-full">
+                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
 
-                    {/* Text Block (Card on Mobile, Transparent on Desktop) */}
-                    <div className="max-w-lg w-full">
+                        {/* Text Block (Card on Mobile, Transparent on Desktop) */}
+                        <div className="max-w-lg w-full">
 
-                        {/* Accroche */}
-                        <h2
-                            ref={titleRef}
-                            className="text-4xl md:text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
-                            style={{ letterSpacing: '-0.02em' }}
-                        >
-                            Parlons de toi.
-                        </h2>
-
-                        {/* Intro */}
-                        <p
-                            ref={introRef}
-                            className="text-lg text-[#52525B] italic mb-8"
-                        >
-                            Je t'offre 30 minutes. On regarde ensemble :
-                        </p>
-
-                        {/* Bullets */}
-                        <ul
-                            ref={bulletsRef}
-                            className="text-base text-[#1D1D1F] font-semibold text-left mx-auto max-w-sm space-y-3 mb-12 list-disc pl-5 marker:text-[#B94A2F]"
-                        >
-                            <li>Où tu en es vraiment</li>
-                            <li>Ce qui coince</li>
-                            <li>Ce que tu veux construire</li>
-                            <li>Si je peux t'aider (et comment)</li>
-                        </ul>
-
-                        {/* CTA Container */}
-                        <div ref={ctaContainerRef} className="flex flex-col items-center">
-                            <button
-                                onClick={() => setIsCalendlyOpen(true)}
-                                className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full md:w-auto"
+                            {/* Accroche */}
+                            <h2
+                                ref={titleRef}
+                                className="text-4xl md:text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
+                                style={{ letterSpacing: '-0.02em' }}
                             >
-                                Réserver mon appel clarté
-                            </button>
+                                Parlons de toi.
+                            </h2>
 
-                            <p className="text-sm text-[#6B7280] mt-4">
-                                Gratuit. Humain. Sans pression.
+                            {/* Intro */}
+                            <p
+                                ref={introRef}
+                                className="text-lg text-[#52525B] italic mb-8"
+                            >
+                                Je t'offre 30 minutes. On regarde ensemble :
                             </p>
-                        </div>
 
+                            {/* Bullets */}
+                            <ul
+                                ref={bulletsRef}
+                                className="text-base text-[#1D1D1F] font-semibold text-left mx-auto max-w-sm space-y-3 mb-12 list-disc pl-5 marker:text-[#B94A2F]"
+                            >
+                                <li>Où tu en es vraiment</li>
+                                <li>Ce qui coince</li>
+                                <li>Ce que tu veux construire</li>
+                                <li>Si je peux t'aider (et comment)</li>
+                            </ul>
+
+                            {/* CTA Container */}
+                            <div ref={ctaContainerRef} className="flex flex-col items-center">
+                                <button
+                                    onClick={() => setIsCalendlyOpen(true)}
+                                    className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full md:w-auto"
+                                >
+                                    Réserver mon appel clarté
+                                </button>
+
+                                <p className="text-sm text-[#6B7280] mt-4">
+                                    Gratuit. Humain. Sans pression.
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
