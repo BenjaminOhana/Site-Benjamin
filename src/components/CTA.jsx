@@ -76,10 +76,10 @@ const CTA = () => {
                 <img
                     src={ctaBgDesktop}
                     alt="Benjamin"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-[25%_center]"
                 />
                 {/* Gradient: Solid beige on left, fading to transparent */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/90 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/90 via-[#FAF8F5]/60 to-transparent"></div>
             </div>
 
             {/* Content Container */}
