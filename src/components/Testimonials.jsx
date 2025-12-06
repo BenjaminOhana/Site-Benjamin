@@ -26,17 +26,18 @@ const Testimonials = () => {
                 ease: "power2.out"
             });
 
-            // Cards Stagger Animation
-            gsap.from(cardsRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 70%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "power2.out"
+            // Individual Card Animation (Simple Fade-in)
+            cardsRef.current.forEach((card) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // Trigger when top of card hits 85% of viewport
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: "power1.out"
+                });
             });
         }, sectionRef);
 
@@ -65,39 +66,41 @@ const Testimonials = () => {
     ];
 
     return (
-        <section className="py-20 md:py-32 bg-[#F3EDE7] overflow-hidden">
+        <section className="py-20 md:py-32 bg-[#FAF8F5] overflow-hidden">
             <div className="container mx-auto px-6">
 
                 {/* Transition Phrase */}
                 <h2
                     ref={titleRef}
-                    className="text-2xl font-heading text-[#1D1D1F] italic text-center mb-16 md:mb-20 px-4"
+                    className="text-2xl font-heading text-[#1D1D1F] italic text-center mb-32 px-4"
                 >
                     "Ils ont choisi de rayonner en restant alignés."
                 </h2>
 
-                {/* Testimonials Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Testimonials List (Vertical Stack) */}
+                <div className="flex flex-col items-center w-full">
                     {testimonials.map((t, index) => (
                         <div
                             key={index}
                             ref={el => cardsRef.current[index] = el}
-                            className="bg-white p-8 rounded-[12px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center w-full"
+                            className="flex flex-col items-center text-center w-full max-w-2xl mx-auto mb-32 last:mb-0"
                         >
                             {/* Avatar */}
                             <img
                                 src={t.image}
                                 alt={t.name}
-                                className="w-[60px] h-[60px] rounded-full object-cover object-center mb-6 border border-[#E5E0D8]"
+                                className="w-20 h-20 rounded-full object-cover object-center mb-8 border border-[#E5E0D8]"
                             />
 
-                            <p className="text-lg text-anthracite italic mb-6 leading-relaxed">
+                            {/* Quote */}
+                            <p className="text-xl md:text-2xl text-[#1D1D1F] italic mb-6 leading-relaxed font-heading">
                                 « {t.quote} »
                             </p>
 
+                            {/* Name & Job */}
                             <div>
-                                <p className="font-bold text-anthracite">{t.name}</p>
-                                <p className="text-sm text-[#52525B]">{t.job}</p>
+                                <p className="font-bold text-[#1D1D1F] text-lg mb-1">{t.name}</p>
+                                <p className="text-sm text-[#52525B] uppercase tracking-wide">{t.job}</p>
                             </div>
                         </div>
                     ))}
