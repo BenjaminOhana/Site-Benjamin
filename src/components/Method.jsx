@@ -107,11 +107,11 @@ const Method = () => {
                     </div>
 
                     {/* Citation Overlay on Image */}
-                    <div className="absolute inset-0 flex items-start justify-center p-8 pt-12 md:items-center md:pt-0">
+                    <div className="absolute inset-0 flex items-start justify-center p-8 pt-16 md:items-center md:pt-0">
 
                         <div ref={citationRef} className="relative z-10 max-w-lg">
                             {/* Localized dark zone behind text */}
-                            <div className="absolute inset-0 bg-black/40 blur-3xl -z-10 rounded-full scale-125 transform translate-y-2"></div>
+                            <div className="absolute inset-0 bg-black/60 blur-3xl -z-10 rounded-full scale-150 transform translate-y-2"></div>
 
                             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center leading-tight drop-shadow-xl">
                                 "Ce qui se voit dehors se construit d'abord dedans."
