@@ -138,7 +138,7 @@ const Method = () => {
                 </div>
 
                 {/* Right: Editorial Scroll Content */}
-                <div className="w-full md:w-1/2 flex flex-col items-center pt-20 pb-32 px-6 md:px-12 bg-[#FAF8F5]">
+                <div className="w-full md:w-1/2 flex flex-col items-center pt-20 pb-12 px-6 md:px-12 bg-[#FAF8F5]">
 
                     <div className="method-pillars-container w-full max-w-lg flex flex-col items-center relative">
 

@@ -9,62 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials = () => {
     const sectionRef = useRef(null);
-    const containerRef = useRef(null);
-    const cardsRef = useRef([]);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const cards = cardsRef.current;
-
-            // Initial state: Hide cards 2 and 3
-            gsap.set([cards[1], cards[2]], {
-                yPercent: 100,
-                opacity: 0
-            });
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: "+=300%", // Scroll distance to complete animation
-                    pin: true,
-                    scrub: 1,
-                    // markers: true // Debugging
-                }
-            });
-
-            // Card 2 enters
-            tl.to(cards[1], {
-                yPercent: 0,
-                opacity: 1,
-                duration: 1,
-                ease: "power2.out"
-            })
-                // Card 1 fades/scales slightly (optional, adds depth)
-                .to(cards[0], {
-                    scale: 0.95,
-                    opacity: 0.5,
-                    duration: 1
-                }, "<") // Run at same time as Card 2 enters
-
-                // Card 3 enters
-                .to(cards[2], {
-                    yPercent: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out"
-                })
-                // Card 2 fades/scales
-                .to(cards[1], {
-                    scale: 0.95,
-                    opacity: 0.5,
-                    duration: 1
-                }, "<"); // Run at same time as Card 3 enters
-
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
+    const sliderRef = useRef(null);
 
     const testimonials = [
         {
@@ -87,48 +32,85 @@ const Testimonials = () => {
         }
     ];
 
+    useEffect(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
+            // DESKTOP: Horizontal Scroll with Pinning
+            const totalSlides = testimonials.length;
+
+            // Calculate movement: -(100 - (100/totalSlides))% ??
+            // If container is 300% width, we want to move it so the 3rd section is visible.
+            // Move to -200% (relative to single screen)? No, xPercent is relative to the element.
+            // If element is 300vw wide. To show the 3rd 100vw chunk, we move -66.666%.
+
+            gsap.to(sliderRef.current, {
+                xPercent: -100 * ((totalSlides - 1) / totalSlides),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    pin: true,
+                    scrub: 1, // Smooth interaction
+                    snap: 1 / (totalSlides - 1), // Snap to slides
+                    end: "+=3000", // Length of the scroll duration
+                }
+            });
+        });
+
+        return () => mm.revert();
+    }, [testimonials.length]);
+
     return (
-        <section ref={sectionRef} className="bg-[#FAF8F5] relative h-screen flex flex-col justify-center overflow-hidden">
-            <div className="container mx-auto px-6 h-full flex flex-col items-center justify-center">
+        <section ref={sectionRef} className="bg-[#FAF8F5] relative overflow-hidden flex flex-col justify-center py-20 md:py-0 md:h-screen">
 
-                {/* Transition Phrase (Fixed at top of section context) */}
-                <div className="absolute top-24 md:top-32 w-full max-w-4xl z-10 flex flex-col items-center px-4 text-center">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic mb-6 leading-tight">
-                        "Ils ont choisi de rayonner en restant alignés."
-                    </h2>
-                    <div className="w-24 h-1 bg-terracotta rounded-full"></div>
-                </div>
+            {/* Title / Transition */}
+            <div className="container mx-auto px-6 mb-12 md:absolute md:top-20 md:left-0 md:right-0 md:z-10 text-center">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic leading-tight">
+                    "Ils ont choisi de rayonner en restant alignés."
+                </h2>
+                <div className="w-24 h-1 bg-terracotta rounded-full mx-auto mt-6"></div>
+            </div>
 
-                {/* Stacking Cards Container */}
-                <div className="relative w-full max-w-md md:max-w-2xl h-[400px] md:h-[500px] flex items-center justify-center mt-20 md:mt-0">
+            {/* Slider Container */}
+            {/* Mobile: Native Horizontal Scroll | Desktop: Wide container for GSAP */}
+            <div className="w-full md:h-full flex items-center">
+                <div
+                    ref={sliderRef}
+                    className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-0 md:gap-0 md:w-[300%] md:h-full md:overflow-visible scrollbar-hide"
+                >
                     {testimonials.map((t, index) => (
                         <div
                             key={index}
-                            ref={el => cardsRef.current[index] = el}
-                            className="absolute top-0 left-0 w-full h-full bg-[#FAF8F5] flex flex-col items-center justify-center text-center px-4"
-                            style={{ zIndex: index + 1 }} // Ensure stacking order
+                            className="flex-shrink-0 w-[85vw] md:w-full h-full snap-center flex items-center justify-center p-4 md:p-0"
                         >
-                            {/* Avatar */}
-                            <img
-                                src={t.image}
-                                alt={t.name}
-                                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover object-center mb-8 border border-[#E5E0D8] shadow-sm"
-                            />
+                            <div className="bg-white/50 md:bg-transparent backdrop-blur-sm md:backdrop-filter-none rounded-2xl p-8 md:p-0 shadow-sm md:shadow-none max-w-sm md:max-w-4xl mx-auto flex flex-col items-center text-center">
+                                {/* Avatar */}
+                                <img
+                                    src={t.image}
+                                    alt={t.name}
+                                    className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover object-center mb-6 md:mb-10 border border-[#E5E0D8]"
+                                />
 
-                            {/* Quote */}
-                            <p className="text-xl md:text-3xl text-[#1D1D1F] italic mb-8 leading-relaxed font-heading max-w-lg">
-                                « {t.quote} »
-                            </p>
+                                {/* Quote */}
+                                <p className="text-xl md:text-4xl text-[#1D1D1F] italic mb-6 md:mb-10 leading-relaxed font-heading">
+                                    « {t.quote} »
+                                </p>
 
-                            {/* Name & Job */}
-                            <div>
-                                <p className="font-bold text-[#1D1D1F] text-lg md:text-xl mb-2">{t.name}</p>
-                                <p className="text-xs md:text-sm text-[#52525B] uppercase tracking-widest">{t.job}</p>
+                                {/* Name & Job */}
+                                <div>
+                                    <p className="font-bold text-[#1D1D1F] text-lg md:text-2xl mb-1">{t.name}</p>
+                                    <p className="text-xs md:text-base text-[#52525B] uppercase tracking-widest">{t.job}</p>
+                                </div>
                             </div>
                         </div>
                     ))}
                 </div>
+            </div>
 
+            {/* Pagination/Instructions (Optional polish) */}
+            <div className="absolute bottom-10 left-0 right-0 text-center hidden md:block opacity-40">
+                <p className="text-sm font-medium tracking-widest uppercase">Découvrir les avis</p>
+                {/* Could add a simple scroll down arrow here */}
             </div>
         </section>
     );
