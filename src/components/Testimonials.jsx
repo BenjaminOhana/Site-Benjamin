@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import noemieImg from '../assets/images/testimonials/noemie.png';
-import charlotteImg from '../assets/images/testimonials/charlotte.jpg';
+import noemieImg from '../assets/images/testimonials/real_noemie.jpg';
+import charlotteImg from '../assets/images/testimonials/real_charlotte.png';
 import julienAnaisImg from '../assets/images/testimonials/julien-anais.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -77,12 +77,12 @@ const Testimonials = () => {
                 </h2>
 
                 {/* Testimonials Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimonials.map((t, index) => (
                         <div
                             key={index}
                             ref={el => cardsRef.current[index] = el}
-                            className="bg-white p-8 rounded-[12px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center w-full max-w-sm mx-auto md:max-w-none"
+                            className="bg-white p-8 rounded-[12px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center w-full"
                         >
                             {/* Avatar */}
                             <img
