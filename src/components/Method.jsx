@@ -92,7 +92,7 @@ const Method = () => {
             <div className="flex flex-col md:flex-row">
 
                 {/* Left: Image (Sticky on Desktop) */}
-                <div className="method-image-container w-full md:w-1/2 h-[50vh] md:h-screen relative md:sticky md:top-0 overflow-hidden">
+                <div className="method-image-container w-full md:w-1/2 h-[70vh] md:h-screen relative md:sticky md:top-0 overflow-hidden">
                     <div className="absolute inset-0">
                         <img
                             src={methodImage}
