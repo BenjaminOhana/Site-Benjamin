@@ -144,7 +144,7 @@ const Method = () => {
 
                         {/* Connecting Line Progress */}
                         <div className="absolute left-1/2 -translate-x-1/2 top-12 bottom-12 w-px bg-transparent">
-                            <div ref={lineRef} className="w-full bg-[#6B7F6B] h-0"></div>
+                            <div ref={lineRef} className="w-full bg-gradient-to-b from-[#6B7F6B] to-[#2F4F2F] h-0"></div>
                         </div>
 
                         {pillars.map((pillar, index) => (
