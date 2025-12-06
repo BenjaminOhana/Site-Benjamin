@@ -16,14 +16,14 @@ const Method = () => {
         const ctx = gsap.context(() => {
             const isDesktop = window.innerWidth > 768;
 
-            // Citation Animation
+            // Citation Animation - Simplified for Mobile Performance
             gsap.from(citationRef.current, {
                 scrollTrigger: {
                     trigger: citationRef.current,
                     start: "top 85%",
                 },
                 y: 30,
-                opacity: 0,
+                autoAlpha: 0,
                 duration: 0.8,
                 ease: "power2.out"
             });
@@ -58,23 +58,24 @@ const Method = () => {
                 }
             );
 
-            // Granular Animation for each Pillar
+            // Granular Animation for each Pillar - Simplified
             pillarsRef.current.forEach((pillar, index) => {
-                const q = gsap.utils.selector(pillar);
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: pillar,
-                        start: "top 75%", // Start animation when pillar is well into view
-                        toggleActions: "play none none reverse"
+                // Batch animate content for better performance
+                gsap.fromTo(pillar.children,
+                    { y: 30, autoAlpha: 0 },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 0.6,
+                        stagger: 0.1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: pillar,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
                     }
-                });
-
-                // Sequence: Icon -> Title -> Subtitle -> Description
-                // Removed Number animation
-                tl.from(q(".method-icon"), { scale: 0.8, opacity: 0, duration: 0.5, ease: "back.out(1.7)" })
-                    .from(q(".method-title"), { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3")
-                    .from(q(".method-subtitle"), { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3")
-                    .from(q(".method-desc"), { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3");
+                );
             });
 
         }, sectionRef);
@@ -92,13 +93,13 @@ const Method = () => {
         {
             title: "Créer",
             subtitle: "L'offre qui justifie tes vrais tarifs",
-            description: "On construit ton écosystème premium : une offre irrésistible, une image qui te positionne au-dessus, un système qui tient.",
+            description: "On construit ton écosystème premium : une offre irrésistible, une image qui te positionne au-dessus, un système qui te libère.",
             icon: <Layers size={32} strokeWidth={1.2} />
         },
         {
             title: "Rayonner",
             subtitle: "Visible. Mémorable. Incontournable.",
-            description: "On te rend impossible à ignorer — à ta façon. Pas besoin de crier, juste d'être au bon endroit, avec le bon message.",
+            description: "Tu deviens impossible à ignorer — à ta façon. Pas besoin de crier, juste d'être au bon endroit, avec le bon message.",
             icon: <Sparkles size={32} strokeWidth={1.2} />
         }
     ];
@@ -127,8 +128,8 @@ const Method = () => {
                     <div className="absolute inset-0 flex items-start justify-center p-8 pt-16 md:items-center md:pt-0">
 
                         <div ref={citationRef} className="relative z-10 max-w-lg">
-                            {/* Localized dark zone behind text */}
-                            <div className="absolute inset-0 bg-black/60 blur-3xl -z-10 rounded-full scale-150 transform translate-y-2"></div>
+                            {/* Localized dark zone behind text - Optimized Blur */}
+                            <div className="absolute inset-0 bg-black/50 blur-2xl -z-10 rounded-full scale-125 transform translate-y-2 will-change-transform"></div>
 
                             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center leading-tight drop-shadow-xl">
                                 "Ce qui se voit dehors se construit d'abord dedans."
