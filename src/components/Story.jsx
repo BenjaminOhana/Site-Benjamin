@@ -85,7 +85,7 @@ const Story = () => {
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas et un burn-out, j'ai tout reconstruit depuis l'intérieur. J'ai choisi ma liberté plutôt que la sécurité.
+                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas, j'ai tout reconstruit depuis l'intérieur. J'ai choisi ma liberté plutôt que la sécurité.
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
