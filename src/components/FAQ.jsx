@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
     const contentRef = useRef(null);
@@ -43,10 +46,29 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(null);
+    const titleRef = useRef(null);
 
     const toggleFAQ = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(titleRef.current,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: titleRef.current,
+                        start: "top 80%",
+                    }
+                }
+            );
+        });
+        return () => ctx.revert();
+    }, []);
 
     const faqs = [
         {
@@ -106,10 +128,13 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="py-20 md:py-32 bg-cream">
+        <section className="pt-16 pb-20 md:pt-24 md:pb-32 bg-cream">
             <div className="container mx-auto px-6 max-w-4xl">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-anthracite text-center mb-16">
-                    Questions Fréquentes
+                <h2
+                    ref={titleRef}
+                    className="text-3xl md:text-4xl font-extrabold text-[#3D5245] font-heading text-center mb-10 md:mb-12"
+                >
+                    Tu te demandes peut-être...
                 </h2>
 
                 <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-sm">

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
-import { Compass, Unlock, Rocket, CheckCircle } from 'lucide-react';
 import ctaBgMobile from '../assets/images/cta-bg.jpg';
 import ctaBgDesktop from '../assets/images/cta-bg-desktop.jpg';
 
@@ -17,47 +16,84 @@ const CTA = () => {
     const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 70%",
-                }
-            });
+        const mm = gsap.matchMedia();
 
-            // Title Fade-in
-            tl.from(titleRef.current, {
-                opacity: 0,
-                y: 20,
-                duration: 0.8,
-                ease: "power2.out"
-            })
-                // Intro Fade-in
-                .from(introRef.current, {
-                    opacity: 0,
-                    y: 10,
-                    duration: 0.5,
-                    ease: "power2.out"
-                }, "-=0.4")
-                // Bullets Stagger
-                .from(bulletsRef.current.children, {
-                    opacity: 0,
-                    x: -10,
-                    duration: 0.5,
-                    stagger: 0.1,
-                    ease: "power2.out"
-                }, "-=0.2")
-                // CTA Lift
-                .from(ctaContainerRef.current, {
+        // Context for cleaning up matchMedia
+        mm.add({
+            isDesktop: "(min-width: 768px)",
+            isMobile: "(max-width: 767px)"
+        }, (context) => {
+            const { isDesktop, isMobile } = context.conditions;
+
+            if (isDesktop) {
+                // DESKTOP ANIMATION
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 70%",
+                    }
+                });
+
+                tl.from(titleRef.current, {
                     opacity: 0,
                     y: 20,
-                    duration: 0.6,
+                    duration: 0.8,
                     ease: "power2.out"
-                }, "-=0.2");
+                })
+                    .from(introRef.current, {
+                        opacity: 0,
+                        y: 10,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    }, "-=0.4")
+                    .from(bulletsRef.current.children, {
+                        opacity: 0,
+                        y: 10,
+                        duration: 0.3,
+                        stagger: 0.1,
+                        ease: "power2.out"
+                    }, "-=0.2")
+                    .from(ctaContainerRef.current, {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.6,
+                        ease: "power2.out"
+                    }, "-=0.2");
+            }
 
-        }, sectionRef);
+            if (isMobile) {
+                // MOBILE ANIMATION
+                // Trigger specifically on the intro text to ensure visibility
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: introRef.current, // Start when the text block enters
+                        start: "top 80%", // When top of intro hits 80% with viewport
+                    }
+                });
 
-        // IntersectionObserver to hide sticky CTA when this section is visible
+                tl.from(introRef.current, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.5,
+                    ease: "power2.out"
+                })
+                    .from(bulletsRef.current.children, {
+                        opacity: 0,
+                        y: 15,
+                        duration: 0.4,
+                        stagger: 0.15,
+                        ease: "power2.out"
+                    }, "-=0.1")
+                    .from(ctaContainerRef.current, {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    }, "-=0.1");
+            }
+        });
+
+        // IntersectionObserver for Sticky CTA
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -76,7 +112,7 @@ const CTA = () => {
         }
 
         return () => {
-            ctx.revert();
+            mm.revert(); // Cleanup GSAP
             if (ctaContainerRef.current) {
                 observer.unobserve(ctaContainerRef.current);
             }
@@ -84,10 +120,10 @@ const CTA = () => {
     }, []);
 
     const bulletPoints = [
-        { icon: Compass, text: "Où tu en es vraiment" },
-        { icon: Unlock, text: "Ce qui coince" },
-        { icon: Rocket, text: "Ce que tu veux construire" },
-        { icon: CheckCircle, text: "Si je peux t'aider (et comment)" }
+        "Où tu en es vraiment",
+        "Ce qui coince",
+        "Ce que tu veux construire",
+        "Si je peux t'aider (et comment)"
     ];
 
     return (
@@ -151,46 +187,39 @@ const CTA = () => {
                             {/* Intro */}
                             <p
                                 ref={introRef}
-                                className="text-lg text-[#52525B] italic mt-8 mb-0 md:mb-8 text-center"
+                                className="font-heading text-xl md:text-2xl text-[#3D5245] font-semibold mt-8 mb-8 md:mb-10 text-center leading-snug"
                             >
-                                Je t'offre 30 minutes. On regarde ensemble :
+                                Je t'offre 30 minutes. <br className="md:hidden" /> On regarde ensemble :
                             </p>
 
-                            {/* Bullets (Premium Icon List) */}
+                            {/* Bullets (Terracotta Dots) */}
                             <div
                                 ref={bulletsRef}
-                                className="mt-6 md:mt-0 mb-0 md:mb-12 space-y-4 md:space-y-4"
+                                className="mt-8 md:mt-0 mb-10 md:mb-14 w-fit mx-auto md:ml-0 space-y-8 md:space-y-10"
                             >
-                                {bulletPoints.map((item, index) => {
-                                    const Icon = item.icon;
-                                    return (
-                                        <div
-                                            key={index}
-                                            className="flex items-center gap-3 md:gap-4 justify-center md:justify-start"
-                                        >
-                                            <Icon
-                                                className="text-[#557A63] flex-shrink-0"
-                                                size={24}
-                                                strokeWidth={2.5}
-                                            />
-                                            <span className="text-lg md:text-base font-bold text-[#1D1D1F]">
-                                                {item.text}
-                                            </span>
-                                        </div>
-                                    );
-                                })}
+                                {bulletPoints.map((text, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center gap-4 justify-start"
+                                    >
+                                        <div className="w-2.5 h-2.5 rounded-full bg-[#C4775C] flex-shrink-0 shadow-sm"></div>
+                                        <span className="text-lg md:text-lg font-bold text-[#1D1D1F] text-left">
+                                            {text}
+                                        </span>
+                                    </div>
+                                ))}
                             </div>
 
                             {/* CTA Container */}
                             <div ref={ctaContainerRef} className="flex flex-col items-center mt-10 md:mt-0">
                                 <button
                                     onClick={() => setIsCalendlyOpen(true)}
-                                    className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full md:w-auto"
+                                    className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-10 py-5 rounded-full text-lg font-bold transition-all transform hover:-translate-y-1 shadow-[0_4px_14px_0_rgba(185,74,47,0.39)] hover:shadow-[0_6px_20px_rgba(185,74,47,0.23)] w-full md:w-auto"
                                 >
                                     Réserver mon appel clarté
                                 </button>
 
-                                <p className="text-sm text-[#6B7280] mt-4">
+                                <p className="text-sm text-[#52525B] font-medium mt-5">
                                     Gratuit. Humain. Sans pression.
                                 </p>
                             </div>
