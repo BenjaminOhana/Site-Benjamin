@@ -125,7 +125,7 @@ const Header = () => {
             </div>
 
             <PopupModal
-                url="https://calendly.com/ton-lien-calendly" // Placeholder, user needs to provide real link or I'll use a placeholder
+                url="https://calendly.com/benjamin-entrepreneuraligne/30min?month=2025-12"
                 rootElement={document.getElementById("root")}
                 text="Réserver mon appel clarté"
                 textColor="#ffffff"
