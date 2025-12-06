@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Prevent mobile address bar resize from triggering heavy refreshes
 ScrollTrigger.config({ ignoreMobileResize: true });
+// Normalize scroll to prevent address bar glitches on iOS
+ScrollTrigger.normalizeScroll(true);
 
 function App() {
   // Smooth scroll setup for anchor links is handled by CSS scroll-behavior: smooth
