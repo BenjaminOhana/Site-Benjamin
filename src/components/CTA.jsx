@@ -159,17 +159,17 @@ const CTA = () => {
                             {/* Bullets (Premium Icon List) */}
                             <div
                                 ref={bulletsRef}
-                                className="mt-6 md:mt-0 mb-0 md:mb-12 space-y-4 md:space-y-3"
+                                className="mt-6 md:mt-0 mb-0 md:mb-12 space-y-4 md:space-y-4"
                             >
                                 {bulletPoints.map((item, index) => {
                                     const Icon = item.icon;
                                     return (
                                         <div
                                             key={index}
-                                            className="flex items-start gap-3 md:gap-4 justify-center md:justify-start"
+                                            className="flex items-center gap-3 md:gap-4 justify-center md:justify-start"
                                         >
                                             <Icon
-                                                className="text-[#3D5245] flex-shrink-0 mt-0.5"
+                                                className="text-[#557A63] flex-shrink-0"
                                                 size={24}
                                                 strokeWidth={2.5}
                                             />
