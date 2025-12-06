@@ -129,7 +129,7 @@ const CTA = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-[100dvh] md:h-screen flex flex-col md:block overflow-hidden bg-[#FAF8F5]"
+            className="relative flex flex-col md:block overflow-hidden bg-[#FAF8F5]"
         >
             {/* Mobile Top Image (55vh, Gradient, Title on Photo) */}
             <div className="relative h-[55vh] w-full md:hidden">
