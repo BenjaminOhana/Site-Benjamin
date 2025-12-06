@@ -72,7 +72,7 @@ const CTA = () => {
                 {/* Accroche */}
                 <h2
                     ref={titleRef}
-                    className="text-4xl md:text-5xl font-bold text-[#1D1D1F] tracking-tight mb-8"
+                    className="text-4xl md:text-5xl font-bold text-[#6B7F6B] tracking-tight mb-8"
                     style={{ letterSpacing: '-0.02em' }}
                 >
                     Parlons de toi.
@@ -89,7 +89,7 @@ const CTA = () => {
                 {/* Bullets */}
                 <ul
                     ref={bulletsRef}
-                    className="text-base text-[#52525B] text-left mx-auto max-w-sm space-y-3 mb-12 list-disc pl-5 marker:text-[#B94A2F]"
+                    className="text-base text-[#1D1D1F] text-left mx-auto max-w-sm space-y-3 mb-16 list-disc pl-5 marker:text-[#B94A2F]"
                 >
                     <li>Où tu en es vraiment</li>
                     <li>Ce qui coince</li>
