@@ -116,7 +116,7 @@ const PainPoints = () => {
                 {/* Transition Phrase */}
                 <div ref={transitionRef} className="text-center max-w-4xl mx-auto pt-12 md:pt-20">
                     <p className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic mb-6">
-                        "Ton énergie est là. Il te manque juste l'alignement."
+                        "Ton énergie est là. Il te manque juste la clarté pour la canaliser."
                     </p>
                     <div className="w-24 h-1 bg-terracotta mx-auto rounded-full"></div>
                 </div>

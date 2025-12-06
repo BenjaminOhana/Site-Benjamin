@@ -81,15 +81,15 @@ const Story = () => {
                         flex flex-col space-y-8 md:space-y-12
                     ">
                         <p className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-anthracite leading-tight">
-                            "Ce n'est pas la structure qui m'a sauvé — c'est l'alignement.
+                            "Ce n'est pas la performance qui m'a sauvé. C'est l'alignement.
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Après 9 ans en Gendarmerie et un burn-out, j'ai appris à mettre ma rigueur au service de moi-même et de ma liberté, pas du système.
+                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas et un burn-out, j'ai tout reconstruit depuis l'intérieur. J'ai choisi ma liberté plutôt que la sécurité.
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Aujourd'hui, c'est ce que je t'aide à faire : donner vie à ce qui vit en toi."
+                            Aujourd'hui, c'est ce que je t'aide à faire. Donner vie à ce qui vit en toi — et créer depuis cet endroit-là."
                         </p>
 
                         <p className="text-xl font-heading font-bold text-sienna pt-4">
