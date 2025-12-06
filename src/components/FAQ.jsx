@@ -53,21 +53,29 @@ const FAQ = () => {
     };
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add({
+            isDesktop: "(min-width: 768px)",
+            isMobile: "(max-width: 767px)"
+        }, (context) => {
+            const { isMobile } = context.conditions;
+
             gsap.fromTo(titleRef.current,
                 { opacity: 0 },
                 {
                     opacity: 1,
                     duration: 0.4,
-                    ease: "power2.out",
+                    ease: "power2.out", // Smooth ease
                     scrollTrigger: {
                         trigger: titleRef.current,
-                        start: "top 80%",
+                        start: isMobile ? "top 85%" : "top 80%", // Triggers slightly earlier on mobile
                     }
                 }
             );
         });
-        return () => ctx.revert();
+
+        return () => mm.revert();
     }, []);
 
     const faqs = [
