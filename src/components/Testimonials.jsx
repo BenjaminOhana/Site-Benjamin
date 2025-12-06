@@ -45,32 +45,32 @@ const Testimonials = () => {
             name: "Noémie",
             job: "Acupunctrice",
             quote: "Un vrai game changer ! Ma patientèle a doublé en 2 mois.",
-            initials: "N"
+            image: "https://ui-avatars.com/api/?name=Noemie&background=C4775C&color=fff&size=128"
         },
         {
             name: "Charlotte",
             job: "Art Thérapeute et Coach holistique",
-            quote: "Une structure claire et rassurante qui me permet d'avancer 100% sereine !",
-            initials: "C"
+            quote: "Mon intuition m'a dit de lui faire confiance. Elle avait raison.",
+            image: "https://ui-avatars.com/api/?name=Charlotte&background=6B7F6B&color=fff&size=128"
         },
         {
             name: "Julien & Anaïs",
-            job: "Tambours Chamaniques Amaneï",
-            quote: "Foncez ! Du marketing sans jamais avoir à vous trahir.",
-            initials: "J&A"
+            job: "Créateurs de Tambours Chamaniques",
+            quote: "Benjamin a été un pilier pour construire notre formation en ligne de A à Z.",
+            image: "https://ui-avatars.com/api/?name=Julien+Anais&background=1D1D1F&color=fff&size=128"
         }
     ];
 
     return (
-        <section className="py-20 md:py-32 bg-cream">
+        <section className="py-20 md:py-32 bg-[#F3EDE7]">
             <div className="container mx-auto px-6">
 
-                {/* Title */}
+                {/* Transition Phrase */}
                 <h2
                     ref={titleRef}
-                    className="text-3xl md:text-4xl font-heading font-bold text-anthracite text-center mb-16"
+                    className="text-2xl font-heading text-[#1D1D1F] italic text-center mb-20"
                 >
-                    Ils ont sauté le pas.
+                    "Ils ont choisi de rayonner en restant alignés."
                 </h2>
 
                 {/* Testimonials Grid */}
@@ -79,12 +79,14 @@ const Testimonials = () => {
                         <div
                             key={index}
                             ref={el => cardsRef.current[index] = el}
-                            className="bg-cream-dark p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
+                            className="bg-white p-8 rounded-[12px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
                         >
-                            {/* Avatar Placeholder */}
-                            <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center text-sage font-bold text-xl mb-6">
-                                {t.initials}
-                            </div>
+                            {/* Avatar */}
+                            <img
+                                src={t.image}
+                                alt={t.name}
+                                className="w-[60px] h-[60px] rounded-full object-cover mb-6"
+                            />
 
                             <p className="text-lg text-anthracite italic mb-6 leading-relaxed">
                                 « {t.quote} »
@@ -92,7 +94,7 @@ const Testimonials = () => {
 
                             <div>
                                 <p className="font-bold text-anthracite">{t.name}</p>
-                                <p className="text-sm text-zinc-600">{t.job}</p>
+                                <p className="text-sm text-[#52525B]">{t.job}</p>
                             </div>
                         </div>
                     ))}
