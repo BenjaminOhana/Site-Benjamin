@@ -187,9 +187,9 @@ const CTA = () => {
                             {/* Intro */}
                             <p
                                 ref={introRef}
-                                className="font-heading text-xl md:text-2xl text-[#3D5245] font-semibold mt-8 mb-8 md:mb-10 text-center leading-snug"
+                                className="font-heading text-2xl md:text-3xl text-[#3D5245] font-bold mt-8 mb-8 md:mb-12 text-center md:text-left leading-snug"
                             >
-                                Je t'offre 30 minutes. <br className="md:hidden" /> On regarde ensemble :
+                                Je t'offre 30 min. On voit :
                             </p>
 
                             {/* Bullets (Terracotta Dots) */}
