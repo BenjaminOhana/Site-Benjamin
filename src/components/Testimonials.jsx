@@ -56,25 +56,19 @@ const Testimonials = () => {
             });
         });
 
+        // Mobile Swipe Hint Animation (Simple bounce)
         mm.add("(max-width: 767px)", () => {
-            // MOBILE: Fade Transition (Title -> Reviews)
-            // Ensure slider is hidden initially
-            gsap.set(containerRef.current, { autoAlpha: 0 });
-
-            const tl = gsap.timeline({
+            // Simple fade in for title
+            gsap.from(titleRef.current, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
                 scrollTrigger: {
-                    trigger: sectionRef.current,
-                    pin: true,
-                    start: "top top", // Start when section hits top
-                    end: "+=500", // Scroll distance for transition
-                    scrub: true,
+                    trigger: titleRef.current,
+                    start: "top 80%",
                 }
             });
 
-            tl.to(titleRef.current, { autoAlpha: 0, scale: 0.9, duration: 1 })
-                .to(containerRef.current, { autoAlpha: 1, duration: 1 }, "-=0.5");
-
-            // Hint Animation
             if (hintRef.current) {
                 gsap.fromTo(hintRef.current,
                     { x: 0, opacity: 0.6 },
@@ -93,13 +87,12 @@ const Testimonials = () => {
     };
 
     return (
-        <section ref={sectionRef} className="bg-[#FAF8F5] relative overflow-hidden flex flex-col justify-center min-h-[100dvh] md:h-screen">
+        <section ref={sectionRef} className="bg-[#FAF8F5] relative overflow-hidden flex flex-col justify-center py-24 md:py-0 md:h-screen">
 
-            {/* Title / Transition */}
-            {/* Mobile: Absolute centered, fades out. Desktop: Absolute Top. */}
+            {/* Title */}
             <div
                 ref={titleRef}
-                className="container mx-auto px-6 absolute inset-0 flex flex-col items-center justify-center md:block md:top-20 md:left-0 md:right-0 md:bottom-auto md:z-10 text-center pointer-events-none"
+                className="container mx-auto px-6 mb-20 md:mb-12 md:absolute md:top-20 md:left-0 md:right-0 md:z-10 text-center"
             >
                 <h2 className="text-3xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic leading-tight max-w-lg mx-auto md:max-w-none">
                     "Ils ont choisi de rayonner en restant alignés."
@@ -108,11 +101,10 @@ const Testimonials = () => {
             </div>
 
             {/* Slider Container */}
-            {/* Mobile: Native Horizontal Scroll | Desktop: Wide container for GSAP */}
-            <div ref={containerRef} className="w-full md:h-full flex items-center relative z-10 md:opacity-100">
+            <div ref={containerRef} className="w-full md:h-full flex items-center relative z-10">
                 <div
                     ref={sliderRef}
-                    className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-0 md:gap-0 md:w-[300%] md:h-full md:overflow-visible scrollbar-hide pt-20 md:pt-0"
+                    className="flex w-full overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-0 md:gap-0 md:w-[300%] md:h-full md:overflow-visible scrollbar-hide"
                 >
                     {testimonials.map((t, index) => (
                         <div
@@ -147,7 +139,7 @@ const Testimonials = () => {
             <div
                 ref={hintRef}
                 onClick={handleNextSlide}
-                className="group absolute right-4 top-1/2 -translate-y-1/2 md:hidden z-20 cursor-pointer p-2 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-sm active:scale-95 transition-all"
+                className="group absolute right-4 top-[60%] md:top-1/2 -translate-y-1/2 md:hidden z-20 cursor-pointer p-2 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-sm active:scale-95 transition-all"
             >
                 <ChevronRight size={32} className="text-[#B94A2F]" />
             </div>
