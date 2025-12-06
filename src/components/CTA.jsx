@@ -64,11 +64,30 @@ const CTA = () => {
             ref={sectionRef}
             className="relative min-h-screen md:h-screen flex flex-col md:block overflow-hidden bg-[#FAF8F5]"
         >
-            {/* Mobile Top Image (50vh, No Overlay) */}
-            <div
-                className="h-[50vh] w-full bg-cover bg-[center_30%] md:hidden"
-                style={{ backgroundImage: `url(${ctaBgMobile})` }}
-            ></div>
+            {/* Mobile Top Image (55vh, Gradient, Title on Photo) */}
+            <div className="relative h-[55vh] w-full md:hidden">
+                {/* Image */}
+                <div
+                    className="absolute inset-0 bg-cover bg-[center_30%]"
+                    style={{ backgroundImage: `url(${ctaBgMobile})` }}
+                ></div>
+
+                {/* Gradient Overlay */}
+                <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to bottom, #FAF8F5 0%, transparent 15%, transparent 50%, rgba(0,0,0,0.7) 100%)' }}
+                ></div>
+
+                {/* Mobile Title (On Photo) */}
+                <div className="absolute bottom-14 left-0 w-full text-center px-4 z-20">
+                    <h2
+                        className="text-4xl font-extrabold text-white tracking-tight"
+                        style={{ letterSpacing: '-0.02em' }}
+                    >
+                        Parlons de toi.
+                    </h2>
+                </div>
+            </div>
 
             {/* Desktop Background (Full Width with Gradient) */}
             <div className="absolute inset-0 w-full h-full hidden md:block">
@@ -86,13 +105,13 @@ const CTA = () => {
                 <div className="container mx-auto md:px-6 flex flex-col md:flex-row md:justify-start w-full">
                     <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
 
-                        {/* Text Block (Card on Mobile, Transparent on Desktop) */}
+                        {/* Text Block Content */}
                         <div className="max-w-lg w-full">
 
-                            {/* Accroche */}
+                            {/* Desktop Title (Hidden on Mobile) */}
                             <h2
                                 ref={titleRef}
-                                className="text-4xl md:text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
+                                className="hidden md:block text-4xl md:text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
                                 style={{ letterSpacing: '-0.02em' }}
                             >
                                 Parlons de toi.
