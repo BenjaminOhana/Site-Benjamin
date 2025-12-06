@@ -23,7 +23,7 @@ const Header = () => {
             setHideStickyForCTA(ctaVisible);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         // Trigger once on mount to check initial position
         handleScroll();
 
@@ -113,7 +113,7 @@ const Header = () => {
 
             {/* Mobile Sticky CTA */}
             <div
-                className={`md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-cream/90 backdrop-blur-md px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border flex justify-center transition-transform duration-300 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] ${shouldShowSticky ? 'translate-y-0' : 'translate-y-[120%]'
+                className={`md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-cream/90 backdrop-blur-md px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border flex justify-center transition-transform duration-300 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] will-change-transform ${shouldShowSticky ? 'translate-y-0' : 'translate-y-[120%]'
                     }`}
             >
                 <button
