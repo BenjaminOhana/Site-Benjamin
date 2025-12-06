@@ -107,7 +107,7 @@ const Method = () => {
                     </div>
 
                     {/* Citation Overlay on Image */}
-                    <div className="absolute inset-0 flex items-start justify-center p-8 pt-24 md:items-center md:pt-0">
+                    <div className="absolute inset-0 flex items-start justify-center p-8 pt-12 md:items-center md:pt-0">
                         {/* Darker radial background behind text for readability */}
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.5)_0%,_transparent_70%)]"></div>
 
