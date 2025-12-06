@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Testimonials = () => {
     const sectionRef = useRef(null);
     const sliderRef = useRef(null);
+    const hintRef = useRef(null);
 
     const testimonials = [
         {
@@ -28,7 +29,7 @@ const Testimonials = () => {
         {
             name: "Julien & Anaïs",
             job: "Créateurs de Tambours Chamaniques",
-            quote: "Benjamin a été un pilier pour construire notre formation en ligne de A à Z.",
+            quote: "En un seul mot, foncez ! Du marketing sans jamais avoir à vous trahir.",
             image: julienAnaisImg
         }
     ];
@@ -58,7 +59,21 @@ const Testimonials = () => {
             });
         });
 
-        return () => mm.revert();
+        // Mobile Swipe Hint Animation
+        const mmMobile = gsap.matchMedia();
+        mmMobile.add("(max-width: 767px)", () => {
+            if (hintRef.current) {
+                gsap.fromTo(hintRef.current,
+                    { x: 0, opacity: 0.6 },
+                    { x: 10, opacity: 1, duration: 1.2, repeat: -1, yoyo: true, ease: "power1.inOut" }
+                );
+            }
+        });
+
+        return () => {
+            mm.revert();
+            mmMobile.revert();
+        };
     }, [testimonials.length]);
 
     return (
@@ -109,7 +124,7 @@ const Testimonials = () => {
             </div>
 
             {/* Mobile Swipe Hint (Right Arrow) */}
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 md:hidden z-10 pointer-events-none opacity-60 animate-pulse">
+            <div ref={hintRef} className="absolute right-6 top-1/2 -translate-y-1/2 md:hidden z-20 pointer-events-none drop-shadow-md">
                 <ChevronRight size={32} className="text-[#B94A2F]" />
             </div>
 

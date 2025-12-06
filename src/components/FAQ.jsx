@@ -92,7 +92,7 @@ const FAQ = () => {
             answer: [
                 "C'est une vraie question — et c'est pour ça que l'appel découverte existe. ☕",
                 "30 minutes pour qu'on se parle, qu'on regarde ta situation, et qu'on sente si ça matche. Pas de pression, pas de vente forcée. Si ce n'est pas le bon moment pour toi, je te le dirai. 🙏",
-                "Et en moyenne, mes clients récupèrent plus de 7 fois leur investissement initial — en temps gagné, en clarté, et en revenus. 📈"
+                "La plupart de mes clients rentabilisent l'accompagnement dès les premières semaines — en clarté mentale, en temps récupéré, et souvent en nouveaux clients."
             ]
         },
         {

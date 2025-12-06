@@ -92,7 +92,7 @@ const Method = () => {
         },
         {
             title: "Créer",
-            subtitle: "L'offre qui justifie tes vrais tarifs",
+            subtitle: "L'offre qui mérite tes vrais tarifs",
             description: "On construit ton écosystème premium : une offre irrésistible, une image qui te positionne au-dessus, un système qui te libère.",
             icon: <Layers size={32} strokeWidth={1.2} />
         },
