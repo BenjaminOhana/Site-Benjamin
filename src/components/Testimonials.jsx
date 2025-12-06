@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ChevronRight } from 'lucide-react';
 import noemieImg from '../assets/images/testimonials/real_noemie.jpg';
 import charlotteImg from '../assets/images/testimonials/real_charlotte.png';
 import julienAnaisImg from '../assets/images/testimonials/julien-anais.jpg';
@@ -107,9 +108,14 @@ const Testimonials = () => {
                 </div>
             </div>
 
+            {/* Mobile Swipe Hint (Right Arrow) */}
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 md:hidden z-10 pointer-events-none opacity-60 animate-pulse">
+                <ChevronRight size={32} className="text-[#B94A2F]" />
+            </div>
+
             {/* Pagination/Instructions (Optional polish) */}
             <div className="absolute bottom-10 left-0 right-0 text-center hidden md:block opacity-40">
-                <p className="text-sm font-medium tracking-widest uppercase">Découvrir les avis</p>
+                <p className="text-sm font-medium tracking-widest uppercase">Découvrir les avis (Scroll)</p>
                 {/* Could add a simple scroll down arrow here */}
             </div>
         </section>
