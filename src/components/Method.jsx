@@ -140,7 +140,7 @@ const Method = () => {
                     <div className="method-pillars-container w-full max-w-lg flex flex-col items-center relative">
 
                         {/* Connecting Line Background */}
-                        <div className="absolute left-1/2 -translate-x-1/2 top-12 bottom-12 w-px bg-[#E5E0D8]"></div>
+                        <div className="absolute left-1/2 -translate-x-1/2 top-12 bottom-12 w-px bg-[#E5E0D8]/50"></div>
 
                         {/* Connecting Line Progress */}
                         <div className="absolute left-1/2 -translate-x-1/2 top-12 bottom-12 w-px bg-transparent">
@@ -151,7 +151,7 @@ const Method = () => {
                             <div
                                 key={index}
                                 ref={el => pillarsRef.current[index] = el}
-                                className={`flex flex-col items-center text-center w-full relative z-10 ${index !== pillars.length - 1 ? 'mb-32 md:mb-48' : 'mb-0'}`}
+                                className={`flex flex-col items-center text-center w-full relative z-10 bg-[#FAF8F5] ${index !== pillars.length - 1 ? 'mb-32 md:mb-48' : 'mb-0'}`}
                             >
                                 {/* Icon with Outline */}
                                 <div className="method-icon mb-6 relative">
