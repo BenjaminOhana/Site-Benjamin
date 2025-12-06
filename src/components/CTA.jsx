@@ -60,7 +60,6 @@ const CTA = () => {
     }, []);
 
     return (
-    return (
         <section
             ref={sectionRef}
             className="relative min-h-[80vh] md:h-screen flex items-center overflow-hidden bg-[#FAF8F5]"
@@ -70,6 +69,7 @@ const CTA = () => {
                 className="absolute inset-0 bg-cover bg-[center_30%] md:hidden"
                 style={{ backgroundImage: `url(${ctaBgMobile})` }}
             ></div>
+            <div className="absolute inset-0 bg-[#FAF8F5]/85 md:hidden"></div>
 
             {/* Desktop Background (Full Width with Gradient) */}
             <div className="absolute inset-0 w-full h-full hidden md:block">
@@ -87,7 +87,7 @@ const CTA = () => {
                 <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
 
                     {/* Text Block (Card on Mobile, Transparent on Desktop) */}
-                    <div className="max-w-lg w-full bg-[#FAF8F5]/92 backdrop-blur-md p-8 rounded-2xl shadow-sm md:bg-transparent md:backdrop-blur-none md:p-0 md:shadow-none md:rounded-none">
+                    <div className="max-w-lg w-full">
 
                         {/* Accroche */}
                         <h2
