@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
+import { Compass, Unlock, Rocket, CheckCircle } from 'lucide-react';
 import ctaBgMobile from '../assets/images/cta-bg.jpg';
 import ctaBgDesktop from '../assets/images/cta-bg-desktop.jpg';
 
@@ -56,8 +57,38 @@ const CTA = () => {
 
         }, sectionRef);
 
-        return () => ctx.revert();
+        // IntersectionObserver to hide sticky CTA when this section is visible
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        document.body.setAttribute('data-cta-visible', 'true');
+                    } else {
+                        document.body.removeAttribute('data-cta-visible');
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        if (ctaContainerRef.current) {
+            observer.observe(ctaContainerRef.current);
+        }
+
+        return () => {
+            ctx.revert();
+            if (ctaContainerRef.current) {
+                observer.unobserve(ctaContainerRef.current);
+            }
+        };
     }, []);
+
+    const bulletPoints = [
+        { icon: Compass, text: "Où tu en es vraiment" },
+        { icon: Unlock, text: "Ce qui coince" },
+        { icon: Rocket, text: "Ce que tu veux construire" },
+        { icon: CheckCircle, text: "Si je peux t'aider (et comment)" }
+    ];
 
     return (
         <section
@@ -125,16 +156,30 @@ const CTA = () => {
                                 Je t'offre 30 minutes. On regarde ensemble :
                             </p>
 
-                            {/* Bullets (Centered on Mobile, List on Desktop) */}
-                            <ul
+                            {/* Bullets (Premium Icon List) */}
+                            <div
                                 ref={bulletsRef}
-                                className="text-base text-[#1D1D1F] font-semibold mt-6 md:mt-0 mb-0 md:mb-12 space-y-3 md:space-y-3 text-center list-none pl-0 md:text-left md:mx-auto md:max-w-sm md:list-disc md:pl-5 md:marker:text-[#B94A2F]"
+                                className="mt-6 md:mt-0 mb-0 md:mb-12 space-y-4 md:space-y-3"
                             >
-                                <li>Où tu en es vraiment</li>
-                                <li>Ce qui coince</li>
-                                <li>Ce que tu veux construire</li>
-                                <li>Si je peux t'aider (et comment)</li>
-                            </ul>
+                                {bulletPoints.map((item, index) => {
+                                    const Icon = item.icon;
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="flex items-start gap-3 md:gap-4 justify-center md:justify-start"
+                                        >
+                                            <Icon
+                                                className="text-[#3D5245] flex-shrink-0 mt-0.5"
+                                                size={24}
+                                                strokeWidth={2.5}
+                                            />
+                                            <span className="text-lg md:text-base font-bold text-[#1D1D1F]">
+                                                {item.text}
+                                            </span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
 
                             {/* CTA Container */}
                             <div ref={ctaContainerRef} className="flex flex-col items-center mt-10 md:mt-0">

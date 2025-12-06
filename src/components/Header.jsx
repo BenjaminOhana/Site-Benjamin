@@ -8,6 +8,7 @@ const Header = () => {
     const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
     const [showStickyCTA, setShowStickyCTA] = useState(false);
+    const [hideStickyForCTA, setHideStickyForCTA] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,14 +17,26 @@ const Header = () => {
             // Simplified check: Show sticky CTA after 400px of scrolling
             // This is roughly when the main Hero content starts to go out of view
             setShowStickyCTA(window.scrollY > 400);
+
+            // Check if CTA section is visible
+            const ctaVisible = document.body.getAttribute('data-cta-visible') === 'true';
+            setHideStickyForCTA(ctaVisible);
         };
 
         window.addEventListener('scroll', handleScroll);
         // Trigger once on mount to check initial position
         handleScroll();
 
+        // Also listen for attribute changes
+        const observer = new MutationObserver(handleScroll);
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['data-cta-visible']
+        });
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            observer.disconnect();
         };
     }, []);
 
@@ -32,6 +45,8 @@ const Header = () => {
         { name: "Benjamin", href: "#story" },
         { name: "L'accompagnement", href: "#method" },
     ];
+
+    const shouldShowSticky = showStickyCTA && !hideStickyForCTA;
 
     return (
         <>
@@ -98,7 +113,7 @@ const Header = () => {
 
             {/* Mobile Sticky CTA */}
             <div
-                className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-cream/80 backdrop-blur-md p-4 border-t border-border flex justify-center transition-transform duration-300 ${showStickyCTA ? 'translate-y-0' : 'translate-y-full'
+                className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-cream/80 backdrop-blur-md p-4 border-t border-border flex justify-center transition-transform duration-300 ${shouldShowSticky ? 'translate-y-0' : 'translate-y-full'
                     }`}
             >
                 <button
