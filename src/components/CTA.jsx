@@ -60,16 +60,16 @@ const CTA = () => {
     }, []);
 
     return (
+    return (
         <section
             ref={sectionRef}
             className="relative min-h-[80vh] md:h-screen flex items-center overflow-hidden bg-[#FAF8F5]"
         >
-            {/* Mobile Background & Overlay */}
+            {/* Mobile Background (No Overlay, Face visible) */}
             <div
-                className="absolute inset-0 bg-cover bg-center md:hidden"
+                className="absolute inset-0 bg-cover bg-[center_30%] md:hidden"
                 style={{ backgroundImage: `url(${ctaBgMobile})` }}
             ></div>
-            <div className="absolute inset-0 bg-[#FAF8F5]/85 md:hidden"></div>
 
             {/* Desktop Background (Full Width with Gradient) */}
             <div className="absolute inset-0 w-full h-full hidden md:block">
@@ -78,19 +78,21 @@ const CTA = () => {
                     alt="Benjamin"
                     className="w-full h-full object-cover object-[25%_center]"
                 />
-                {/* Gradient: Solid beige on left, fading to transparent */}
+                {/* Gradient: Lighter beige on left, fading to transparent */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/90 via-[#FAF8F5]/60 to-transparent"></div>
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center md:flex-row md:justify-start">
+            <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-end pb-12 md:pb-0 md:justify-center md:flex-row md:justify-start">
                 <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
-                    <div className="max-w-lg">
+
+                    {/* Text Block (Card on Mobile, Transparent on Desktop) */}
+                    <div className="max-w-lg w-full bg-[#FAF8F5]/92 backdrop-blur-md p-8 rounded-2xl shadow-sm md:bg-transparent md:backdrop-blur-none md:p-0 md:shadow-none md:rounded-none">
 
                         {/* Accroche */}
                         <h2
                             ref={titleRef}
-                            className="text-4xl md:text-5xl font-bold text-[#3D5245] tracking-tight mb-8"
+                            className="text-4xl md:text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
                             style={{ letterSpacing: '-0.02em' }}
                         >
                             Parlons de toi.
@@ -107,7 +109,7 @@ const CTA = () => {
                         {/* Bullets */}
                         <ul
                             ref={bulletsRef}
-                            className="text-base text-[#1D1D1F] font-semibold text-left mx-auto max-w-sm space-y-3 mb-16 list-disc pl-5 marker:text-[#B94A2F]"
+                            className="text-base text-[#1D1D1F] font-semibold text-left mx-auto max-w-sm space-y-3 mb-12 list-disc pl-5 marker:text-[#B94A2F]"
                         >
                             <li>Où tu en es vraiment</li>
                             <li>Ce qui coince</li>
@@ -119,7 +121,7 @@ const CTA = () => {
                         <div ref={ctaContainerRef} className="flex flex-col items-center">
                             <button
                                 onClick={() => setIsCalendlyOpen(true)}
-                                className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                                className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full md:w-auto"
                             >
                                 Réserver mon appel clarté
                             </button>
