@@ -142,7 +142,7 @@ const FAQ = () => {
                     ref={titleRef}
                     className="text-3xl md:text-4xl font-extrabold text-[#3D5245] font-heading text-center mb-10 md:mb-12"
                 >
-                    Tu te demandes <br /> peut-être...
+                    Tu te demandes <br className="md:hidden" /> peut-être...
                 </h2>
 
                 <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-sm">

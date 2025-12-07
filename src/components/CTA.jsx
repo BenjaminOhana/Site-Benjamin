@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { MapPin, Lock, Target, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
@@ -128,10 +129,10 @@ const CTA = () => {
     }, []);
 
     const bulletPoints = [
-        "Où tu en es vraiment",
-        "Ce qui coince",
-        "Ce que tu veux construire",
-        "Si je peux t'aider (et comment)"
+        { text: "Où tu en es vraiment", icon: MapPin },
+        { text: "Ce qui coince", icon: Lock },
+        { text: "Ce que tu veux construire", icon: Target },
+        { text: "Si je peux t'aider (et comment)", icon: Sparkles }
     ];
 
     return (
@@ -180,14 +181,14 @@ const CTA = () => {
                         ref={mobileBulletsRef}
                         className="mb-10 w-fit mx-auto space-y-8"
                     >
-                        {bulletPoints.map((text, index) => (
+                        {bulletPoints.map((point, index) => (
                             <div
                                 key={index}
                                 className="flex items-center gap-4 justify-start"
                             >
                                 <div className="w-2.5 h-2.5 rounded-full bg-[#C4775C] flex-shrink-0 shadow-sm"></div>
                                 <span className="text-lg font-bold text-[#1D1D1F] text-left">
-                                    {text}
+                                    {point.text}
                                 </span>
                             </div>
                         ))}
@@ -238,13 +239,14 @@ const CTA = () => {
                         ref={bulletsRef}
                         className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto"
                     >
-                        {bulletPoints.map((text, index) => (
+                        {bulletPoints.map((point, index) => (
                             <div
                                 key={index}
-                                className="bg-[#FAF8F5] p-6 rounded-lg flex items-center shadow-sm"
+                                className="bg-[#FAF8F5] p-6 rounded-lg flex items-center gap-4 shadow-sm"
                             >
+                                <point.icon className="w-6 h-6 text-[#B94A2F] flex-shrink-0" />
                                 <span className="text-lg font-bold text-[#1D1D1F]">
-                                    {text}
+                                    {point.text}
                                 </span>
                             </div>
                         ))}

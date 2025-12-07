@@ -17,16 +17,16 @@ const Testimonials = () => {
 
     const testimonials = [
         {
-            name: "Noémie",
-            job: "Acupunctrice",
-            quote: "Un vrai game changer ! Ma patientèle a doublé en 2 mois.",
-            image: noemieImg
-        },
-        {
             name: "Charlotte",
             job: "Art Thérapeute et Coach holistique",
             quote: "Mon intuition m'a dit de lui faire confiance. Elle avait raison.",
             image: charlotteImg
+        },
+        {
+            name: "Noémie",
+            job: "Acupunctrice",
+            quote: "Benjamin m'a aidée à voir clair ✨. En 1 mois, j'avais enfin une direction et mes premiers vrais clients !",
+            image: noemieImg
         },
         {
             name: "Julien & Anaïs",
@@ -96,7 +96,9 @@ const Testimonials = () => {
 
     const handleNextSlide = () => {
         if (sliderRef.current) {
-            sliderRef.current.scrollBy({ left: window.innerWidth * 0.85, behavior: 'smooth' });
+            // Card width (85vw) + gap (1.5rem ~ 24px)
+            const scrollAmount = (window.innerWidth * 0.85) + 24;
+            sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
