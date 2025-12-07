@@ -25,23 +25,23 @@ const PainPoints = () => {
                 ease: "power2.out"
             });
 
-            // Points Group Animation (Staggered)
+            // Points Animation
             gsap.from(pointsRef.current, {
                 scrollTrigger: {
-                    trigger: sectionRef.current, // Trigger when section starts
-                    start: "top 60%", // Start earlier to ensure visibility
+                    trigger: sectionRef.current,
+                    start: "top 70%",
                 },
-                y: 20, // Lift 20px
+                y: 30,
                 opacity: 0,
                 duration: 0.8,
-                stagger: 0.05, // Faster stagger for snappier feel
+                stagger: 0.1,
                 ease: "power2.out"
             });
 
             // Check for reduced motion preference
             const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             if (prefersReducedMotion) {
-                gsap.globalTimeline.timeScale(100); // Instantly finish animations
+                gsap.globalTimeline.timeScale(100);
             }
 
             // Transition Phrase Animation
@@ -52,8 +52,8 @@ const PainPoints = () => {
                 },
                 y: 30,
                 opacity: 0,
-                duration: 0.5, // Fade-in lent (0.5s)
-                delay: 0.6, // Wait for cards to finish (0.45s start + anim time)
+                duration: 0.5,
+                delay: 0.4,
                 ease: "power2.out"
             });
         }, sectionRef);
@@ -87,26 +87,26 @@ const PainPoints = () => {
                 {/* Title */}
                 <h2
                     ref={titleRef}
-                    className="text-3xl md:text-4xl font-heading font-bold text-anthracite text-center mb-16 md:mb-20 max-w-3xl mx-auto leading-tight"
+                    className="text-3xl md:text-3xl lg:text-4xl font-heading font-bold text-anthracite text-center mb-16 md:mb-20 max-w-3xl mx-auto leading-tight"
                 >
                     Tu es doué. Tu le sais. Alors pourquoi ça coince ?
                 </h2>
 
-                {/* Narrative Points List */}
-                <div className="flex flex-col items-center max-w-3xl mx-auto mb-16 md:mb-20">
+                {/* Grid Layout for Desktop, Stacked for Mobile */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 lg:gap-y-20 max-w-5xl mx-auto mb-16 md:mb-20">
                     {points.map((point, index) => (
                         <div
                             key={index}
                             ref={el => pointsRef.current[index] = el}
-                            className="flex flex-col items-center text-center mb-12 md:mb-16 last:mb-0 w-full"
+                            className="flex flex-col items-center text-center w-full"
                         >
                             {/* Icon with Glow */}
-                            <div className="point-icon text-[#B94A2F] mb-6 md:mb-8 drop-shadow-[0_0_8px_rgba(185,74,47,0.25)]">
+                            <div className="point-icon text-[#B94A2F] mb-6 drop-shadow-[0_0_8px_rgba(185,74,47,0.25)] feature-icon-hover transition-transform duration-300 hover:scale-110">
                                 {point.icon}
                             </div>
 
                             {/* Text */}
-                            <p className="point-text text-xl md:text-3xl text-anthracite font-medium leading-relaxed max-w-2xl">
+                            <p className="point-text text-xl md:text-2xl text-anthracite font-medium leading-relaxed max-w-md">
                                 {point.text}
                             </p>
                         </div>
@@ -114,7 +114,7 @@ const PainPoints = () => {
                 </div>
 
                 {/* Transition Phrase */}
-                <div ref={transitionRef} className="text-center max-w-4xl mx-auto pt-12 md:pt-20">
+                <div ref={transitionRef} className="text-center max-w-4xl mx-auto pt-12 md:pt-24 lg:pt-48 lg:pb-12">
                     <p className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic mb-6">
                         "Ton énergie est là. Il te manque juste la clarté pour la canaliser."
                     </p>

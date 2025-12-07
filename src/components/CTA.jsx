@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
 import ctaBgMobile from '../assets/images/cta-bg.jpg';
-import ctaBgDesktop from '../assets/images/cta-bg-desktop.jpg';
+import ctaBgDesktop from '../assets/images/benjamin-desktop.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +13,12 @@ const CTA = () => {
     const introRef = useRef(null);
     const bulletsRef = useRef(null);
     const ctaContainerRef = useRef(null);
+
+    // Mobile Refs (Separate to avoid conflicts with Desktop refs in DOM)
+    const mobileIntroRef = useRef(null);
+    const mobileBulletsRef = useRef(null);
+    const mobileCtaRef = useRef(null);
+
     const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
     useEffect(() => {
@@ -66,25 +72,25 @@ const CTA = () => {
                 // Trigger specifically on the intro text to ensure visibility
                 const tl = gsap.timeline({
                     scrollTrigger: {
-                        trigger: introRef.current, // Start when the text block enters
+                        trigger: mobileIntroRef.current, // Start when the text block enters
                         start: "top 80%", // When top of intro hits 80% with viewport
                     }
                 });
 
-                tl.from(introRef.current, {
+                tl.from(mobileIntroRef.current, {
                     opacity: 0,
                     y: 20,
                     duration: 0.5,
                     ease: "power2.out"
                 })
-                    .from(bulletsRef.current.children, {
+                    .from(mobileBulletsRef.current.children, {
                         opacity: 0,
                         y: 15,
                         duration: 0.4,
                         stagger: 0.15,
                         ease: "power2.out"
                     }, "-=0.1")
-                    .from(ctaContainerRef.current, {
+                    .from(mobileCtaRef.current, {
                         opacity: 0,
                         y: 20,
                         duration: 0.5,
@@ -110,12 +116,14 @@ const CTA = () => {
         if (ctaContainerRef.current) {
             observer.observe(ctaContainerRef.current);
         }
+        if (mobileCtaRef.current) {
+            observer.observe(mobileCtaRef.current);
+        }
 
         return () => {
             mm.revert(); // Cleanup GSAP
-            if (ctaContainerRef.current) {
-                observer.unobserve(ctaContainerRef.current);
-            }
+            if (ctaContainerRef.current) observer.unobserve(ctaContainerRef.current);
+            if (mobileCtaRef.current) observer.unobserve(mobileCtaRef.current);
         };
     }, []);
 
@@ -156,76 +164,109 @@ const CTA = () => {
                 </div>
             </div>
 
-            {/* Desktop Background (Full Width with Gradient) */}
-            <div className="absolute inset-0 w-full h-full hidden md:block">
-                <img
-                    src={ctaBgDesktop}
-                    alt="Benjamin"
-                    className="w-full h-full object-cover object-[25%_center]"
-                />
-                {/* Gradient: Lighter beige on left, fading to transparent */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/90 via-[#FAF8F5]/60 to-transparent"></div>
+            {/* Mobile Content Container (Restored) */}
+            <div className="relative z-10 -mt-24 px-6 pt-12 pb-12 md:hidden bg-[linear-gradient(to_bottom,transparent_0%,#FAF8F5_20%,#FAF8F5_100%)]">
+                <div className="flex flex-col items-center text-center">
+                    {/* Intro */}
+                    <p
+                        ref={mobileIntroRef}
+                        className="font-heading text-2xl text-[#3D5245] font-bold mt-8 mb-8 leading-snug"
+                    >
+                        Je t'offre 30 min. On voit :
+                    </p>
+
+                    {/* Bullets */}
+                    <div
+                        ref={mobileBulletsRef}
+                        className="mb-10 w-fit mx-auto space-y-8"
+                    >
+                        {bulletPoints.map((text, index) => (
+                            <div
+                                key={index}
+                                className="flex items-center gap-4 justify-start"
+                            >
+                                <div className="w-2.5 h-2.5 rounded-full bg-[#C4775C] flex-shrink-0 shadow-sm"></div>
+                                <span className="text-lg font-bold text-[#1D1D1F] text-left">
+                                    {text}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* CTA Container */}
+                    <div ref={mobileCtaRef} className="flex flex-col items-center w-full">
+                        <button
+                            onClick={() => setIsCalendlyOpen(true)}
+                            className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-10 py-5 rounded-full text-lg font-bold shadow-[0_4px_14px_0_rgba(185,74,47,0.39)] w-full max-w-sm"
+                        >
+                            Réserver mon appel clarté
+                        </button>
+
+                        <p className="text-sm text-[#52525B] font-medium mt-5">
+                            Gratuit. Humain. Sans pression.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            {/* Content Container */}
-            <div className="relative z-10 -mt-24 bg-[linear-gradient(to_bottom,transparent_0%,#FAF8F5_20%,#FAF8F5_100%)] px-6 pt-12 pb-12 md:mt-0 md:bg-none md:p-0 md:h-full md:flex md:items-center">
-                <div className="container mx-auto md:px-6 flex flex-col md:flex-row md:justify-start w-full">
-                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:pl-12 lg:pl-20">
+            {/* Desktop Layout (>1024px "Invitation Card" Style) - responsive down to tablet */}
+            <div className="hidden md:flex min-h-[80vh] items-center justify-center py-20 bg-[#FAF8F5]">
 
-                        {/* Text Block Content */}
-                        <div className="max-w-lg w-full">
+                {/* INVITATION CARD CONTAINER */}
+                <div className="w-full max-w-[900px] bg-[#F3EDE7] shadow-[0_4px_24px_rgba(0,0,0,0.06)] rounded-2xl px-[60px] py-20 mx-6 lg:mx-auto">
 
-                            {/* Desktop Title (Hidden on Mobile) */}
-                            <h2
-                                ref={titleRef}
-                                className="hidden md:block text-4xl md:text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
-                                style={{ letterSpacing: '-0.02em' }}
-                            >
-                                Parlons de toi.
-                            </h2>
+                    {/* Centered Headers */}
+                    <div className="text-center">
+                        <h2
+                            ref={titleRef}
+                            className="text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
+                            style={{ letterSpacing: '-0.02em' }}
+                        >
+                            Parlons de toi.
+                        </h2>
 
-                            {/* Intro */}
-                            <p
-                                ref={introRef}
-                                className="font-heading text-2xl md:text-3xl text-[#3D5245] font-bold mt-8 mb-8 md:mb-12 text-center md:text-left leading-snug"
-                            >
-                                Je t'offre 30 min. On voit :
-                            </p>
-
-                            {/* Bullets (Terracotta Dots) */}
-                            <div
-                                ref={bulletsRef}
-                                className="mt-8 md:mt-0 mb-10 md:mb-14 w-fit mx-auto md:ml-0 space-y-8 md:space-y-10"
-                            >
-                                {bulletPoints.map((text, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex items-center gap-4 justify-start"
-                                    >
-                                        <div className="w-2.5 h-2.5 rounded-full bg-[#C4775C] flex-shrink-0 shadow-sm"></div>
-                                        <span className="text-lg md:text-lg font-bold text-[#1D1D1F] text-left">
-                                            {text}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* CTA Container */}
-                            <div ref={ctaContainerRef} className="flex flex-col items-center mt-10 md:mt-0">
-                                <button
-                                    onClick={() => setIsCalendlyOpen(true)}
-                                    className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-10 py-5 rounded-full text-lg font-bold transition-all transform hover:-translate-y-1 shadow-[0_4px_14px_0_rgba(185,74,47,0.39)] hover:shadow-[0_6px_20px_rgba(185,74,47,0.23)] w-full md:w-auto"
-                                >
-                                    Réserver mon appel clarté
-                                </button>
-
-                                <p className="text-sm text-[#52525B] font-medium mt-5">
-                                    Gratuit. Humain. Sans pression.
-                                </p>
-                            </div>
-
-                        </div>
+                        <p
+                            ref={introRef}
+                            className="font-heading text-2xl text-[#3D5245] font-normal mb-8"
+                        >
+                            Je t'offre 30 min. On voit :
+                        </p>
                     </div>
+
+                    {/* 2x2 Grid for Bullets */}
+                    <div
+                        ref={bulletsRef}
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto"
+                    >
+                        {bulletPoints.map((text, index) => (
+                            <div
+                                key={index}
+                                className="bg-[#FAF8F5] p-6 rounded-lg flex items-center shadow-sm"
+                            >
+                                <span className="text-lg font-bold text-[#1D1D1F]">
+                                    {text}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Centered CTA */}
+                    <div
+                        ref={ctaContainerRef}
+                        className="mt-14 flex flex-col items-center"
+                    >
+                        <button
+                            onClick={() => setIsCalendlyOpen(true)}
+                            className="bg-[#B94A2F] hover:bg-[#9A3D25] text-white px-10 h-[56px] rounded-full text-lg font-bold transition-all transform hover:-translate-y-1 shadow-[0_4px_14px_0_rgba(185,74,47,0.39)] hover:shadow-[0_6px_20px_rgba(185,74,47,0.23)]"
+                        >
+                            Réserver mon appel clarté
+                        </button>
+
+                        <p className="text-sm text-[#52525B] font-medium mt-4">
+                            Gratuit. Humain. Sans pression.
+                        </p>
+                    </div>
+
                 </div>
             </div>
 

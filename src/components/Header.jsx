@@ -69,12 +69,14 @@ const Header = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className={`font-medium transition-colors ${isScrolled
+                                className={`group relative font-medium transition-colors ${isScrolled
                                     ? 'text-anthracite hover:text-sienna'
                                     : 'text-white/90 hover:text-white'
                                     }`}
                             >
                                 {link.name}
+                                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-sienna' : 'bg-white'
+                                    }`}></span>
                             </a>
                         ))}
                         <button
