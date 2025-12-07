@@ -186,7 +186,7 @@ const CTA = () => {
                                 key={index}
                                 className="flex items-center gap-4 justify-start"
                             >
-                                <div className="w-2.5 h-2.5 rounded-full bg-[#C4775C] flex-shrink-0 shadow-sm"></div>
+                                <point.icon className="w-6 h-6 text-[#B94A2F] flex-shrink-0" />
                                 <span className="text-lg font-bold text-[#1D1D1F] text-left">
                                     {point.text}
                                 </span>
