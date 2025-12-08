@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import noemieImg from '../assets/images/testimonials/real_noemie.jpg';
 import charlotteImg from '../assets/images/testimonials/real_charlotte.png';
 import julienAnaisImg from '../assets/images/testimonials/julien-anais.jpg';
@@ -14,6 +14,11 @@ const Testimonials = () => {
     const hintRef = useRef(null);
     const titleRef = useRef(null);
     const containerRef = useRef(null);
+
+    const [scrollState, setScrollState] = React.useState({
+        canScrollLeft: false,
+        canScrollRight: true
+    });
 
     const testimonials = [
         {
@@ -94,11 +99,44 @@ const Testimonials = () => {
         return () => mm.revert();
     }, [testimonials.length]);
 
+    const checkScroll = () => {
+        if (sliderRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+            setScrollState({
+                canScrollLeft: scrollLeft > 10,
+                canScrollRight: scrollLeft < scrollWidth - clientWidth - 10
+            });
+        }
+    };
+
+    useEffect(() => {
+        const slider = sliderRef.current;
+        if (slider) {
+            slider.addEventListener('scroll', checkScroll);
+            // Check initial state
+            checkScroll();
+            window.addEventListener('resize', checkScroll);
+        }
+        return () => {
+            if (slider) {
+                slider.removeEventListener('scroll', checkScroll);
+            }
+            window.removeEventListener('resize', checkScroll);
+        };
+    }, []);
+
     const handleNextSlide = () => {
         if (sliderRef.current) {
             // Card width (85vw) + gap (1.5rem ~ 24px)
             const scrollAmount = (window.innerWidth * 0.85) + 24;
             sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
+
+    const handlePrevSlide = () => {
+        if (sliderRef.current) {
+            const scrollAmount = (window.innerWidth * 0.85) + 24;
+            sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         }
     };
 
@@ -151,11 +189,20 @@ const Testimonials = () => {
                 </div>
             </div>
 
-            {/* Mobile Swipe Hint (Right Arrow) - Clickable */}
+            {/* Mobile Navigation Arrows */}
+            {/* Left Arrow */}
+            <div
+                onClick={handlePrevSlide}
+                className={`absolute left-4 top-[60%] md:top-1/2 -translate-y-1/2 md:hidden z-20 cursor-pointer p-2 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-sm active:scale-95 transition-all duration-300 ${scrollState.canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            >
+                <ChevronLeft size={32} className="text-[#B94A2F]" />
+            </div>
+
+            {/* Right Arrow */}
             <div
                 ref={hintRef}
                 onClick={handleNextSlide}
-                className="group absolute right-4 top-[60%] md:top-1/2 -translate-y-1/2 md:hidden z-20 cursor-pointer p-2 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-sm active:scale-95 transition-all"
+                className={`absolute right-4 top-[60%] md:top-1/2 -translate-y-1/2 md:hidden z-20 cursor-pointer p-2 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-sm active:scale-95 transition-all duration-300 ${scrollState.canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             >
                 <ChevronRight size={32} className="text-[#B94A2F]" />
             </div>

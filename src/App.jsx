@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import PainPoints from './components/PainPoints';
-import Story from './components/Story';
-import Method from './components/Method';
-import Testimonials from './components/Testimonials';
-import CTA from './components/CTA';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import MentionsLegales from './pages/MentionsLegales';
+import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -59,19 +55,18 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cream font-sans text-anthracite selection:bg-terracotta selection:text-white">
-      <Header />
-      <main>
-        <Hero />
-        <PainPoints />
-        <Story />
-        <Method />
-        <Testimonials />
-        <CTA />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/mentions-legales.html" element={<MentionsLegales />} />
+          <Route path="/politique-confidentialite.html" element={<PolitiqueConfidentialite />} />
+          {/* Fallback for standard URLs if needed, or just redirect */}
+          <Route path="mentions-legales" element={<MentionsLegales />} />
+          <Route path="politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
