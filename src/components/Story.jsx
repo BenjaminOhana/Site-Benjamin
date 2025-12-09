@@ -85,7 +85,11 @@ const Story = () => {
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas, j'ai tout reconstruit depuis l'intérieur. J'ai choisi ma liberté plutôt que la sécurité. Depuis, j'allie deux mondes trop souvent opposés : celui du cadre et celui de l'intuition.
+                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas, j'ai tout reconstruit depuis l'intérieur.
+                        </p>
+
+                        <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
+                            J'ai choisi ma liberté plutôt que la sécurité. Depuis, j'allie deux mondes trop souvent opposés, celui du <strong>cadre</strong> et celui de l'<strong>intuition</strong>.
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
