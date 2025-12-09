@@ -81,15 +81,15 @@ const Story = () => {
                         flex flex-col space-y-8 md:space-y-12
                     ">
                         <p className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-anthracite leading-tight">
-                            "Ce n'est pas la performance qui m'a sauvé. C'est l'alignement.
+                            Ce n'est pas la performance qui m'a sauvé. C'est l'alignement.
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas, j'ai tout reconstruit depuis l'intérieur. J'ai choisi ma liberté plutôt que la sécurité.
+                            Après 9 ans en Gendarmerie à vivre une vie qui ne me ressemblait pas, j'ai tout reconstruit depuis l'intérieur. J'ai choisi ma liberté plutôt que la sécurité. Depuis, j'allie deux mondes trop souvent opposés : celui du cadre et celui de l'intuition.
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Aujourd'hui, c'est ce que je t'aide à faire. Donner vie à ce qui vit en toi — et créer depuis cet endroit-là."
+                            Aujourd'hui, c'est ce que je t'aide à faire. Allier ton intuition à une stratégie claire — et libérer ce qui vit en toi.
                         </p>
 
                         <p className="text-xl font-heading font-bold text-sienna pt-4">
