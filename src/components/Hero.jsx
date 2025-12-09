@@ -80,7 +80,7 @@ const Hero = () => {
                         ref={h2Ref}
                         className="text-lg md:text-2xl text-white/90 font-medium mb-12 max-w-2xl leading-relaxed opacity-0 drop-shadow-md"
                     >
-                        Pour les entrepreneurs sensibles et ambitieux prêts à créer du premium — et à l'assumer.
+                        Accompagnement sur-mesure pour les créatifs, praticiens et coachs qui veulent réussir — sans vendre leur âme.
                     </h2>
 
                     <div ref={ctaRef} className="flex flex-col items-center gap-8 opacity-0">
