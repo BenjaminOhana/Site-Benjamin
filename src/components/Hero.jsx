@@ -42,21 +42,22 @@ const Hero = () => {
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
 
             {/* Background Image with Gradient Overlay */}
+            {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-                {/* Mobile Image */}
-                <img
-                    ref={mobileImageRef}
-                    src={heroMobileImage}
-                    alt="Benjamin en discussion"
-                    className="block md:hidden w-full h-full object-cover object-top"
-                />
+                <picture>
+                    <source media="(max-width: 767px)" srcSet={heroMobileImage} />
+                    <source media="(min-width: 768px)" srcSet={heroImage} />
+                    <img
+                        ref={mobileImageRef}
+                        src={heroImage}
+                        alt="Benjamin en discussion"
+                        className="w-full h-full object-cover object-top md:object-center"
+                        fetchPriority="high"
+                        width="1920"
+                        height="1080"
+                    />
+                </picture>
 
-                {/* Desktop Image */}
-                <img
-                    src={heroImage}
-                    alt="Benjamin en discussion"
-                    className="hidden md:block w-full h-full object-cover object-center"
-                />
                 {/* Lighter overlay on mobile */}
                 <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent md:from-black/60 md:via-black/20"></div>
