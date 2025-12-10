@@ -27,8 +27,8 @@ const Hero = () => {
                     "-=0.5"
                 )
                 .fromTo(ctaRef.current,
-                    { autoAlpha: 0, y: 20 },
-                    { autoAlpha: 1, y: 0, duration: 0.8 },
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.8 },
                     "-=0.5"
                 );
 
@@ -72,7 +72,7 @@ const Hero = () => {
                     {/* Text Content */}
                     <h1
                         ref={h1Ref}
-                        className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-8 opacity-0 drop-shadow-lg tracking-[-0.02em] will-change-transform"
+                        className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-8 drop-shadow-lg tracking-[-0.02em] will-change-transform"
                     >
                         Tu n'as pas besoin de crier pour être entendu
                     </h1>

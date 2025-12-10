@@ -43,11 +43,11 @@ const Footer = () => {
                     </div>
 
                     {/* Legal */}
-                    <div className="text-center md:text-right text-sm text-gray-500 flex flex-col items-center md:items-end">
+                    <div className="text-center md:text-right text-sm text-gray-300 flex flex-col items-center md:items-end">
                         <div className="space-x-2 mb-2">
-                            <Link to="/mentions-legales.html" className="hover:text-gray-300 transition-colors">Mentions Légales</Link>
+                            <Link to="/mentions-legales.html" className="hover:text-white transition-colors">Mentions Légales</Link>
                             <span>•</span>
-                            <Link to="/politique-confidentialite.html" className="hover:text-gray-300 transition-colors">Politique de Confidentialité</Link>
+                            <Link to="/politique-confidentialite.html" className="hover:text-white transition-colors">Politique de Confidentialité</Link>
                         </div>
                         <p>© 2025 Benjamin Poulet - Entrepreneur Aligné</p>
                     </div>
