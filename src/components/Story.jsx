@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import storyImage from '../assets/images/parcours-benjamin-entrepreneur-aligne-histoire.jpg';
+import storyImage from '../assets/images/parcours-benjamin-entrepreneur-aligne-histoire.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

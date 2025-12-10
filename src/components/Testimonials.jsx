@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
-import noemieImg from '../assets/images/testimonials/temoignage-coaching-noemie-alignement.jpg';
-import charlotteImg from '../assets/images/testimonials/temoignage-coaching-charlotte-resultats.png';
-import julienAnaisImg from '../assets/images/testimonials/temoignage-coaching-julien-anais.jpg';
+import noemieImg from '../assets/images/testimonials/temoignage-coaching-noemie-alignement.webp';
+import charlotteImg from '../assets/images/testimonials/temoignage-coaching-charlotte-resultats.webp';
+import julienAnaisImg from '../assets/images/testimonials/temoignage-coaching-julien-anais.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

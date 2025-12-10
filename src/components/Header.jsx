@@ -91,6 +91,7 @@ const Header = () => {
                     <button
                         className={`md:hidden transition-colors ${isScrolled ? 'text-anthracite' : 'text-white'}`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Menu principal"
                     >
                         {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>

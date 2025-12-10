@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Compass, Layers, Sparkles } from 'lucide-react';
-import methodImage from '../assets/images/methode-coaching-alignement-strategie-business.jpg';
+import methodImage from '../assets/images/methode-coaching-alignement-strategie-business.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

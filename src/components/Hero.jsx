@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import heroImage from '../assets/images/benjamin-coach-entrepreneur-vision-clarte.jpg';
-import heroMobileImage from '../assets/images/benjamin-coach-entrepreneur-portrait-mobile.jpg';
+import heroImage from '../assets/images/benjamin-coach-entrepreneur-vision-clarte.webp';
+import heroMobileImage from '../assets/images/benjamin-coach-entrepreneur-portrait-mobile.webp';
 import { PopupModal } from 'react-calendly';
 
 const Hero = () => {

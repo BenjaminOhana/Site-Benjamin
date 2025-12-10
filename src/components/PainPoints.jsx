@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Users, Lightbulb, Coins, LayoutGrid } from 'lucide-react';
+import { Heart, Lightbulb, TrendingDown, Scale } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,20 +63,20 @@ const PainPoints = () => {
 
     const points = [
         {
-            text: "Les clients ne viennent pas — malgré tes efforts, tes posts, ton site",
-            icon: <Users size={64} strokeWidth={1.5} />
+            text: "Tu t'épuises à créer du contenu pour 3 likes et zéro client",
+            icon: <Heart size={64} strokeWidth={1.5} />
         },
         {
-            text: "Tu as 1000 idées — mais tu ne sais plus par où commencer",
+            text: "Tu jongles entre 10 idées — et aucune n'avance vraiment",
             icon: <Lightbulb size={64} strokeWidth={1.5} />
         },
         {
-            text: "Tu n'oses pas facturer à ta juste valeur — et tu te demandes si tu le mérites vraiment",
-            icon: <Coins size={64} strokeWidth={1.5} />
+            text: "Tu baisses tes prix pour \"avoir au moins quelqu'un\"",
+            icon: <TrendingDown size={64} strokeWidth={1.5} />
         },
         {
-            text: "Tu cherches un cadre — mais pas une cage",
-            icon: <LayoutGrid size={64} strokeWidth={1.5} />
+            text: "Tu as l'impression de devoir choisir entre être authentique et être rentable",
+            icon: <Scale size={64} strokeWidth={1.5} />
         }
     ];
 

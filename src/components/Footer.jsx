@@ -22,10 +22,22 @@ const Footer = () => {
 
                     {/* Socials */}
                     <div className="flex space-x-6">
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+                        <a
+                            href="https://www.instagram.com/benjaminpoulet_/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300"
+                            aria-label="Instagram"
+                        >
                             <Instagram size={24} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+                        <a
+                            href="https://www.linkedin.com/in/benjamin-poulet-7b5a9b38b/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300"
+                            aria-label="LinkedIn"
+                        >
                             <Linkedin size={24} />
                         </a>
                     </div>

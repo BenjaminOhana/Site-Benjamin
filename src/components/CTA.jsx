@@ -3,8 +3,8 @@ import { MapPin, Lock, Target, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
-import ctaBgMobile from '../assets/images/coaching-premium-atmosphere-bali-calme.jpg';
-import ctaBgDesktop from '../assets/images/benjamin-poulet-coach-business-bureau.jpg';
+import ctaBgMobile from '../assets/images/coaching-premium-atmosphere-bali-calme.webp';
+import ctaBgDesktop from '../assets/images/benjamin-poulet-coach-business-bureau.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
