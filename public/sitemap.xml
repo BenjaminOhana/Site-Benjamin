@@ -4,7 +4,7 @@
    <!-- 1. Ta Page D'accueil (La plus importante) -->
    <url>
       <loc>https://entrepreneuraligne.fr/</loc>
-      <lastmod>2025-12-08</lastmod>
+      <lastmod>2025-12-10</lastmod>
       <priority>1.0</priority>
       <changefreq>weekly</changefreq>
    </url>
@@ -12,7 +12,7 @@
    <!-- 2. Mentions Légales -->
    <url>
       <loc>https://entrepreneuraligne.fr/mentions-legales.html</loc>
-      <lastmod>2025-12-08</lastmod>
+      <lastmod>2025-12-10</lastmod>
       <priority>0.3</priority>
       <changefreq>yearly</changefreq>
    </url>
@@ -20,7 +20,7 @@
    <!-- 3. Politique de Confidentialité -->
    <url>
       <loc>https://entrepreneuraligne.fr/politique-confidentialite.html</loc>
-      <lastmod>2025-12-08</lastmod>
+      <lastmod>2025-12-10</lastmod>
       <priority>0.3</priority>
       <changefreq>yearly</changefreq>
    </url>
