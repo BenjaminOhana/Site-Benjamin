@@ -11,28 +11,16 @@ const Header = () => {
     const [hideStickyForCTA, setHideStickyForCTA] = useState(false);
 
     useEffect(() => {
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-
         const handleScroll = () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollY = window.scrollY;
-                    setIsScrolled(scrollY > 50);
+            setIsScrolled(window.scrollY > 50);
 
-                    // Simplified check: Show sticky CTA after 400px of scrolling
-                    setShowStickyCTA(scrollY > 400);
+            // Simplified check: Show sticky CTA after 400px of scrolling
+            // This is roughly when the main Hero content starts to go out of view
+            setShowStickyCTA(window.scrollY > 400);
 
-                    // Check if CTA section is visible
-                    const ctaVisible = document.body.getAttribute('data-cta-visible') === 'true';
-                    setHideStickyForCTA(ctaVisible);
-
-                    lastScrollY = scrollY;
-                    ticking = false;
-                });
-
-                ticking = true;
-            }
+            // Check if CTA section is visible
+            const ctaVisible = document.body.getAttribute('data-cta-visible') === 'true';
+            setHideStickyForCTA(ctaVisible);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
