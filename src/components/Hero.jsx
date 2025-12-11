@@ -127,7 +127,7 @@ const Hero = () => {
                                 </div>
                             </div>
 
-                            <div className="text-xs md:text-sm text-white/70 font-light tracking-wide flex items-center gap-2">
+                            <div className="text-xs md:text-sm text-white/95 font-medium tracking-wide flex items-center gap-2 drop-shadow-md">
                                 <span>Zéro technique agressive</span>
                                 <span className="w-1 h-1 rounded-full bg-white/40"></span>
                                 <span>100% sur-mesure</span>
