@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Lock, Target, Sparkles } from 'lucide-react';
+import { MapPin, Lock, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PopupModal } from 'react-calendly';
@@ -7,6 +7,29 @@ import ctaBgMobile from '../assets/images/coaching-premium-atmosphere-bali-calme
 import ctaBgDesktop from '../assets/images/benjamin-poulet-coach-business-bureau.webp';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const CraneIcon = (props) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M4 21h16" />
+        <path d="M10 21V5" />
+        <path d="M10 5h11" />
+        <path d="M10 5H6" />
+        <path d="M18 5v8" />
+        <rect x="16" y="13" width="4" height="4" />
+        <path d="M10 9L6 5" />
+    </svg>
+);
 
 const CTA = () => {
     const sectionRef = useRef(null);
@@ -131,7 +154,7 @@ const CTA = () => {
     const bulletPoints = [
         { text: "Où tu en es vraiment", icon: MapPin },
         { text: "Ce qui coince", icon: Lock },
-        { text: "Ce que tu veux construire", icon: Target },
+        { text: "Ce que tu veux construire", icon: CraneIcon },
         { text: "Si je peux t'aider (et comment)", icon: Sparkles }
     ];
 

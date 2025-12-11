@@ -74,14 +74,14 @@ const Hero = () => {
                         ref={h1Ref}
                         className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-8 drop-shadow-lg tracking-[-0.02em] will-change-transform"
                     >
-                        Tu n'as pas besoin de crier pour être entendu
+                        Transforme ta sensibilité en ta plus grande force
                     </h1>
 
                     <h2
                         ref={h2Ref}
                         className="text-lg md:text-2xl text-white/90 font-medium mb-12 max-w-2xl leading-relaxed opacity-0 drop-shadow-md"
                     >
-                        Accompagnement sur-mesure pour les créatifs, praticiens et coachs qui veulent réussir — sans vendre leur âme.
+                        Coaching stratégique pour créatifs, praticiens et coachs qui veulent vivre de leur passion — sans vendre leur âme
                     </h2>
 
                     <div ref={ctaRef} className="flex flex-col items-center gap-8 opacity-0">

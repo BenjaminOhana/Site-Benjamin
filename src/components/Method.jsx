@@ -99,7 +99,7 @@ const Method = () => {
         {
             title: "Rayonner",
             subtitle: "Visible. Mémorable. Incontournable.",
-            description: "Tu deviens impossible à ignorer — à ta façon. Pas besoin de crier, juste d'être au bon endroit, avec le bon message.",
+            description: "Tu deviens impossible à ignorer — à ta façon. Pas besoin de crier pour être entendu, juste d'être au bon endroit, avec le bon message.",
             icon: <Sparkles size={32} strokeWidth={1.2} />
         }
     ];
