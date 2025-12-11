@@ -109,7 +109,7 @@ const Hero = () => {
             {/* Bottom Gradient Transition to Next Section */}
             <div className="absolute bottom-0 left-0 right-0 h-48 md:h-64 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent z-0 pointer-events-none"></div>
 
-            <div className="container mx-auto px-6 relative z-10 pt-20">
+            <div className="container mx-auto px-6 relative z-10 pt-20 pb-24 md:pb-20">
                 <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
 
                     {/* Text Content */}
@@ -140,7 +140,7 @@ const Hero = () => {
                         </span>
 
                         {/* Trust Bar */}
-                        <div className="flex flex-col items-center gap-3 mt-6 md:mt-8 md:flex-row bg-black/20 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 md:px-8 md:py-3 transition-all hover:bg-black/30">
+                        <div className="flex flex-col items-center gap-3 mt-6 md:mt-8 md:flex-row bg-black/40 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 md:px-8 md:py-3 transition-all hover:bg-black/50">
                             <div className="flex items-center gap-4">
                                 {/* Avatar Stack */}
                                 <div className="flex -space-x-4">
