@@ -39,7 +39,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
