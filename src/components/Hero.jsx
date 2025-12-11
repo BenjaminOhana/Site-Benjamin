@@ -95,6 +95,46 @@ const Hero = () => {
                         <span className="hidden md:block text-sm md:text-base text-white/80 italic">
                             30 min offertes, pour toi et ta vision.
                         </span>
+
+                        {/* Trust Bar */}
+                        <div className="flex flex-col items-center gap-3 mt-4 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+                            <div className="flex items-center gap-4">
+                                {/* Avatar Stack */}
+                                <div className="flex -space-x-4">
+                                    {[1, 2, 3, 4, 5].map((i) => (
+                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-[#A85D42] bg-gray-200 overflow-hidden relative shadow-md">
+                                            <img
+                                                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i * 123}`}
+                                                alt="Entrepreneur accompagné"
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="text-left">
+                                    <div className="flex items-center gap-1">
+                                        <div className="flex text-yellow-400">
+                                            {[1, 2, 3, 4, 5].map((s) => (
+                                                <svg key={s} className="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <p className="text-white font-medium text-sm leading-tight">
+                                        +30 entrepreneurs <span className="text-white/80 font-normal">déjà alignés</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="text-xs md:text-sm text-white/70 font-light tracking-wide flex items-center gap-2">
+                                <span>Zéro technique agressive</span>
+                                <span className="w-1 h-1 rounded-full bg-white/40"></span>
+                                <span>100% sur-mesure</span>
+                                <span className="w-1 h-1 rounded-full bg-white/40"></span>
+                                <span>Dispo 7j/7</span>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
