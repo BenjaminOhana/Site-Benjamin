@@ -43,7 +43,8 @@ const Hero = () => {
 
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
-            <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* Fixed Background Image with Gradient Overlay */}
+            <div className="fixed inset-0 w-full h-screen -z-10 overflow-hidden pointer-events-none">
                 <picture>
                     <source media="(max-width: 767px)" srcSet={heroMobileImage} />
                     <source media="(min-width: 768px)" srcSet={heroImage} />
@@ -61,10 +62,10 @@ const Hero = () => {
                 {/* Lighter overlay on mobile */}
                 <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent md:from-black/60 md:via-black/20"></div>
-
-                {/* Bottom Gradient Transition to Next Section */}
-                <div className="absolute bottom-0 left-0 right-0 h-48 md:h-64 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent z-20 pointer-events-none"></div>
             </div>
+
+            {/* Bottom Gradient Transition to Next Section - Scrolled with content */}
+            <div className="absolute bottom-0 left-0 right-0 h-48 md:h-64 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent z-0 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10 pt-20">
                 <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
