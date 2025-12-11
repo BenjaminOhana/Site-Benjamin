@@ -9,8 +9,27 @@ const Hero = () => {
     const h2Ref = useRef(null);
     const ctaRef = useRef(null);
     const [isCalendlyOpen, setIsCalendlyOpen] = React.useState(false);
+    const [heroHeight, setHeroHeight] = React.useState('100vh');
 
     const mobileImageRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            // Only update if width changes drastically (orientation change) or big desktop resize
+            // to avoid mobile address bar vertical resize triggers
+            setHeroHeight(`${window.innerHeight}px`);
+        };
+
+        // Initial set
+        handleResize();
+
+        // We could add a listener, but to be "rock solid" against address bar jumps, 
+        // we might mainly rely on the initial load height for mobile.
+        // However, orientation change is important.
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -39,14 +58,17 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section
+            className="relative flex items-center justify-center overflow-hidden w-full"
+            style={{ minHeight: heroHeight }}
+        >
 
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
-            {/* Fixed Background Image - Stable with 100svh (no jump) */}
-            <div className="fixed top-0 left-0 w-full h-[100svh] z-0 overflow-hidden pointer-events-none">
+            {/* Background Image - Absolute (Standard Scroll) but with locked Section Height */}
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <picture>
                     <source media="(max-width: 767px)" srcSet={heroMobileImage} />
                     <source media="(min-width: 768px)" srcSet={heroImage} />
