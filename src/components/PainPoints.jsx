@@ -63,20 +63,20 @@ const PainPoints = () => {
 
     const points = [
         {
-            text: "Tu t'épuises à créer du contenu pour 3 likes et zéro client",
+            text: "Tu as l'impression de devoir choisir entre être authentique et être rentable",
+            icon: <Scale size={64} strokeWidth={1.5} />
+        },
+        {
+            text: "Tu passes tes soirées sur un post Instagram... pour 3 likes et zéro client",
             icon: <Heart size={64} strokeWidth={1.5} />
         },
         {
-            text: "Tu jongles entre 10 idées — et aucune n'avance vraiment",
+            text: "Tu as 100 idées le lundi, et vendredi aucune n'a avancé",
             icon: <Lightbulb size={64} strokeWidth={1.5} />
         },
         {
-            text: "Tu baisses tes prix pour \"avoir au moins quelqu'un\"",
+            text: "Tu baisses tes prix \"pour avoir au moins quelqu'un\" — et tu te demandes si tu mérites vraiment plus",
             icon: <TrendingDown size={64} strokeWidth={1.5} />
-        },
-        {
-            text: "Tu as l'impression de devoir choisir entre être authentique et être rentable",
-            icon: <Scale size={64} strokeWidth={1.5} />
         }
     ];
 
@@ -114,13 +114,17 @@ const PainPoints = () => {
                 </div>
 
                 {/* Transition Phrase */}
-                <div ref={transitionRef} className="text-center max-w-4xl mx-auto pt-12 md:pt-24 lg:pt-48 lg:pb-12">
+                <div ref={transitionRef} className="text-center max-w-4xl mx-auto pt-12 md:pt-24 lg:pt-32">
+                    {/* Validation/Reassurance */}
+                    <p className="text-lg md:text-xl text-zinc-600 font-medium mb-8 leading-relaxed px-4">
+                        Je te rassure, tu n'as pas un problème de compétence. Tu as un problème de clarté.
+                    </p>
+
                     <p className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic mb-6">
                         "Ton énergie est là. Il te manque juste la clarté pour la canaliser."
                     </p>
                     <div className="w-24 h-1 bg-terracotta mx-auto rounded-full"></div>
                 </div>
-
             </div>
         </section>
     );
