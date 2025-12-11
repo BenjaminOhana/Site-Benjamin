@@ -70,8 +70,11 @@ const Hero = () => {
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
             {/* Background Image with Gradient Overlay */}
-            {/* Background Image - Absolute (Standard Scroll) but with locked Section Height */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            {/* Fixed Background Image - Stable Parallax with Locked Height */}
+            <div
+                className="fixed top-0 left-0 w-full z-0 overflow-hidden pointer-events-none"
+                style={{ height: heroHeight }}
+            >
                 <picture>
                     <source media="(max-width: 767px)" srcSet={heroMobileImage} />
                     <source media="(min-width: 768px)" srcSet={heroImage} />
@@ -94,7 +97,7 @@ const Hero = () => {
             {/* Bottom Gradient Transition to Next Section */}
             <div className="absolute bottom-0 left-0 right-0 h-48 md:h-64 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent z-0 pointer-events-none"></div>
 
-            <div className="container mx-auto px-6 relative z-10 pt-20">
+            <div className="container mx-auto px-6 relative z-10 pt-20 pb-32 md:pb-20">
                 <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
 
                     {/* Text Content */}
