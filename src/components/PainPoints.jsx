@@ -117,7 +117,7 @@ const PainPoints = () => {
                 <div ref={transitionRef} className="text-center max-w-4xl mx-auto pt-12 md:pt-24 lg:pt-32">
                     {/* Validation/Reassurance */}
                     <p className="text-lg md:text-xl text-zinc-600 font-medium mb-8 leading-relaxed px-4">
-                        Je te rassure, tu n'as pas un problème de compétence. Tu as un problème de clarté.
+                        Je te rassure, tu n'as pas un problème de compétence.
                     </p>
 
                     <p className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-anthracite italic mb-6">
