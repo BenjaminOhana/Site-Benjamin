@@ -2,6 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import heroImage from '../assets/images/benjamin-coach-entrepreneur-vision-clarte.webp';
 import heroMobileImage from '../assets/images/benjamin-coach-entrepreneur-portrait-mobile.webp';
+// Client Avatars
+import clientSophie from '../assets/images/clients/sophie-therapeute-holistique.png';
+import clientClaire from '../assets/images/clients/claire-coach-intuitive.png';
+import clientThomas from '../assets/images/clients/thomas-consultant-business.png';
+import clientElodie from '../assets/images/clients/elodie-naturopathe.png';
+import clientSarah from '../assets/images/clients/sarah-professeur-yoga.png';
+
 import { PopupModal } from 'react-calendly';
 
 const Hero = () => {
@@ -13,6 +20,14 @@ const Hero = () => {
     const lastWidth = useRef(typeof window !== 'undefined' ? window.innerWidth : 0);
 
     const mobileImageRef = useRef(null);
+
+    const clients = [
+        { img: clientSophie, name: "Sophie", job: "Thérapeute Holistique" },
+        { img: clientThomas, name: "Thomas", job: "Consultant Business" },
+        { img: clientClaire, name: "Claire", job: "Coach Intuitive" },
+        { img: clientElodie, name: "Élodie", job: "Naturopathe" },
+        { img: clientSarah, name: "Sarah", job: "Prof de Yoga" },
+    ];
 
     useEffect(() => {
         const handleResize = () => {
@@ -129,11 +144,11 @@ const Hero = () => {
                             <div className="flex items-center gap-4">
                                 {/* Avatar Stack */}
                                 <div className="flex -space-x-4">
-                                    {[1, 2, 3, 4, 5].map((i) => (
+                                    {clients.map((client, i) => (
                                         <div key={i} className="w-10 h-10 rounded-full border-2 border-[#A85D42] bg-gray-200 overflow-hidden relative shadow-md">
                                             <img
-                                                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i * 123}`}
-                                                alt="Entrepreneur accompagné"
+                                                src={client.img}
+                                                alt={`${client.name}, ${client.job} accompagné(e)`}
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
