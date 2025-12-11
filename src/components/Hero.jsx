@@ -97,7 +97,7 @@ const Hero = () => {
                         </span>
 
                         {/* Trust Bar */}
-                        <div className="flex flex-col items-center gap-3 mt-4 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+                        <div className="flex flex-col items-center gap-3 mt-4">
                             <div className="flex items-center gap-4">
                                 {/* Avatar Stack */}
                                 <div className="flex -space-x-4">
