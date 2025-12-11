@@ -3,11 +3,11 @@ import gsap from 'gsap';
 import heroImage from '../assets/images/benjamin-coach-entrepreneur-vision-clarte.webp';
 import heroMobileImage from '../assets/images/benjamin-coach-entrepreneur-portrait-mobile.webp';
 // Client Avatars
-import clientSophie from '../assets/images/clients/sophie-therapeute-holistique.png';
-import clientClaire from '../assets/images/clients/claire-coach-intuitive.png';
-import clientThomas from '../assets/images/clients/thomas-consultant-business.png';
-import clientElodie from '../assets/images/clients/elodie-naturopathe.png';
-import clientSarah from '../assets/images/clients/sarah-professeur-yoga.png';
+import clientSophie from '../assets/images/clients/sophie-therapeute-holistique.webp';
+import clientClaire from '../assets/images/clients/claire-coach-intuitive.webp';
+import clientThomas from '../assets/images/clients/thomas-consultant-business.webp';
+import clientElodie from '../assets/images/clients/elodie-naturopathe.webp';
+import clientSarah from '../assets/images/clients/sarah-professeur-yoga.webp';
 
 import { PopupModal } from 'react-calendly';
 
