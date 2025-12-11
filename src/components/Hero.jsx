@@ -140,7 +140,7 @@ const Hero = () => {
                         </span>
 
                         {/* Trust Bar */}
-                        <div className="flex flex-col items-center gap-3 mt-6 md:mt-8 md:flex-row md:bg-black/20 md:backdrop-blur-sm md:border md:border-white/10 md:rounded-full md:px-8 md:py-3 transition-all hover:bg-black/30">
+                        <div className="flex flex-col items-center gap-3 mt-6 md:mt-8 md:flex-row md:bg-black/20 md:backdrop-blur-sm md:border md:border-white/10 md:rounded-full md:px-8 md:py-3 md:transition-all md:hover:bg-black/30">
                             <div className="flex items-center gap-4">
                                 {/* Avatar Stack */}
                                 <div className="flex -space-x-4">
