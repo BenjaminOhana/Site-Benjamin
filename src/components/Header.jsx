@@ -57,7 +57,7 @@ const Header = () => {
                 <div className="container mx-auto px-6 flex justify-between items-center">
                     <a
                         href="#"
-                        className={`text-xl font-heading font-bold tracking-tight transition-colors ${isScrolled ? 'text-anthracite' : 'text-white'
+                        className={`text-base md:text-xl font-heading font-bold tracking-tight transition-colors ${isScrolled ? 'text-anthracite' : 'text-white'
                             }`}
                     >
                         Benjamin · Entrepreneur Aligné
