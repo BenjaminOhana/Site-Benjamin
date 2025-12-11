@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, height=630, initial-scale=1.0">
+    <title>OG Generator</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; width: 1200px; height: 630px; overflow: hidden; font-family: 'Outfit', sans-serif; }
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="relative bg-[#1a1a1a]">
+    
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <!-- We link to the existing hero image. Note: path must be relative to public or root. We will us the local dev URL path -->
+        <img src="/src/assets/images/benjamin-coach-entrepreneur-vision-clarte.webp" class="w-full h-full object-cover opacity-80" alt="Background">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 w-full h-full flex flex-col justify-center px-24">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md w-fit mb-8">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]"></span>
+            <span class="text-white/90 text-sm font-medium tracking-wide uppercase">Coaching & Stratégie</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-7xl font-heading font-bold text-white leading-tight max-w-4xl mb-6 drop-shadow-lg">
+            Transforme ta sensibilité <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#e6ceb8] to-[#c7a48d]">en ta plus grande force</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-2xl text-white/80 max-w-2xl font-light leading-relaxed mb-12">
+            Accompagnement pour créatifs et praticiens qui veulent <br/><strong>structure</strong> et <strong>alignement</strong>.
+        </p>
+
+        <!-- CTA Button (Visual only) -->
+        <div class="flex items-center gap-6">
+            <div class="px-10 py-4 bg-[#B94A2F] text-white text-2xl font-medium rounded-full shadow-[0_4px_20px_rgba(185,74,47,0.4)] flex items-center gap-3">
+                Découvrir l'approche
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+            
+            <!-- Trust Proof -->
+            <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-black/30 backdrop-blur-sm border border-white/10">
+                <div class="flex -space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gray-300 border-2 border-[#1a1a1a]"></div>
+                    <div class="w-10 h-10 rounded-full bg-gray-400 border-2 border-[#1a1a1a]"></div>
+                    <div class="w-10 h-10 rounded-full bg-gray-500 border-2 border-[#1a1a1a]"></div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex text-[#F59E0B]">
+                        ★★★★★
+                    </div>
+                    <span class="text-white/80 text-xs font-medium">Entrepreneurs accompagnés</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Branding Footer -->
+    <div class="absolute bottom-12 right-12 text-right opacity-60">
+        <p class="text-white font-heading text-xl tracking-wider">BENJAMIN</p>
+        <p class="text-white/60 text-sm uppercase tracking-[0.2em] mt-1">Entrepreneur Aligné</p>
+    </div>
+
+</body>
+</html>
