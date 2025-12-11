@@ -10,22 +10,25 @@ const Hero = () => {
     const ctaRef = useRef(null);
     const [isCalendlyOpen, setIsCalendlyOpen] = React.useState(false);
     const [heroHeight, setHeroHeight] = React.useState('100vh');
+    const lastWidth = useRef(typeof window !== 'undefined' ? window.innerWidth : 0);
 
     const mobileImageRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
-            // Only update if width changes drastically (orientation change) or big desktop resize
-            // to avoid mobile address bar vertical resize triggers
-            setHeroHeight(`${window.innerHeight}px`);
+            const currentWidth = window.innerWidth;
+            // Only update if width changes (orientation change or desktop resize)
+            // This prevents mobile address bar scroll from triggering a height update/jump
+            if (currentWidth !== lastWidth.current) {
+                lastWidth.current = currentWidth;
+                setHeroHeight(`${window.innerHeight}px`);
+            }
         };
 
-        // Initial set
-        handleResize();
+        // Initial set to lock correctly on load
+        setHeroHeight(`${window.innerHeight}px`);
+        lastWidth.current = window.innerWidth;
 
-        // We could add a listener, but to be "rock solid" against address bar jumps, 
-        // we might mainly rely on the initial load height for mobile.
-        // However, orientation change is important.
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
