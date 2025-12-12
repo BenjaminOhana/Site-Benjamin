@@ -1,0 +1,7 @@
+# Redirects from what the browser requests to what we serve
+
+# 301 Redirects (Old URLs)
+/mon-histoire  /  301
+
+# SPA Rewrite (Catch-all)
+/*  /index.html  200

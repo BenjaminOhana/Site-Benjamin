@@ -12,6 +12,8 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
+            if (typeof window === 'undefined') return;
+
             setIsScrolled(window.scrollY > 50);
 
             // Simplified check: Show sticky CTA after 400px of scrolling
@@ -23,9 +25,11 @@ const Header = () => {
             setHideStickyForCTA(ctaVisible);
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        // Trigger once on mount to check initial position
-        handleScroll();
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            // Trigger once on mount to check initial position
+            handleScroll();
+        }
 
         // Also listen for attribute changes
         const observer = new MutationObserver(handleScroll);

@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
 const PolitiqueConfidentialite = () => {
     return (
         <div className="container mx-auto px-6 py-24 max-w-[800px]">
+            <Helmet>
+                <title>Politique de Confidentialité | Benjamin - Entrepreneur Aligné</title>
+                <meta name="description" content="Politique de confidentialité d'Entrepreneur Aligné - Protection de vos données, gestion des cookies et respect du RGPD." />
+                <link rel="canonical" href="https://entrepreneuraligne.fr/politique-confidentialite" />
+            </Helmet>
             <Link to="/" className="inline-flex items-center gap-2 text-anthracite/60 hover:text-sienna transition-colors mb-8 group">
                 <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                 <span className="font-medium">Retour à l'accueil</span>

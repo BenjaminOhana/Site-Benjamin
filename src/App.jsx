@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -16,8 +17,8 @@ function App() {
   // Smooth scroll setup for anchor links is handled by CSS scroll-behavior: smooth
 
   useEffect(() => {
-    // Initialize Lenis only on desktop
-    if (window.innerWidth > 1024) {
+    // Initialize Lenis only on desktop and if window is defined
+    if (typeof window !== 'undefined' && window.innerWidth > 1024) {
       // Dynamic import to avoid breaking if not present, but we installed it. 
       // Or just standard import if we are sure it won't affect mobile performance too much (it won't run).
       import('lenis').then((LenisModule) => {
@@ -55,18 +56,20 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/mentions-legales.html" element={<MentionsLegales />} />
-          <Route path="/politique-confidentialite.html" element={<PolitiqueConfidentialite />} />
-          {/* Fallback for standard URLs if needed, or just redirect */}
-          <Route path="mentions-legales" element={<MentionsLegales />} />
-          <Route path="politique-confidentialite" element={<PolitiqueConfidentialite />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/mentions-legales.html" element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite.html" element={<PolitiqueConfidentialite />} />
+            {/* Fallback for standard URLs if needed, or just redirect */}
+            <Route path="mentions-legales" element={<MentionsLegales />} />
+            <Route path="politique-confidentialite" element={<PolitiqueConfidentialite />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
