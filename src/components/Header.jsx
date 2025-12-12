@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { PopupModal } from 'react-calendly';
+const PopupModal = React.lazy(() => import('react-calendly').then(module => ({ default: module.PopupModal })));
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -131,15 +131,17 @@ const Header = () => {
                 </button>
             </div>
 
-            <PopupModal
-                url="https://calendly.com/benjamin-entrepreneuraligne/30min?month=2025-12"
-                rootElement={document.getElementById("root")}
-                text="Réserver mon appel clarté"
-                textColor="#ffffff"
-                color="#A85D42"
-                open={isCalendlyOpen}
-                onModalClose={() => setIsCalendlyOpen(false)}
-            />
+            <React.Suspense fallback={null}>
+                <PopupModal
+                    url="https://calendly.com/benjamin-entrepreneuraligne/30min?month=2025-12"
+                    rootElement={document.getElementById("root")}
+                    text="Réserver mon appel clarté"
+                    textColor="#ffffff"
+                    color="#A85D42"
+                    open={isCalendlyOpen}
+                    onModalClose={() => setIsCalendlyOpen(false)}
+                />
+            </React.Suspense>
         </>
     );
 };

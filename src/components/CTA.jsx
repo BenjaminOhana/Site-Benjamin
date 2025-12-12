@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Lock, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { PopupModal } from 'react-calendly';
+const PopupModal = React.lazy(() => import('react-calendly').then(module => ({ default: module.PopupModal })));
 import ctaBgMobile from '../assets/images/coaching-premium-atmosphere-bali-calme.webp';
 import ctaBgDesktop from '../assets/images/benjamin-poulet-coach-business-bureau.webp';
 

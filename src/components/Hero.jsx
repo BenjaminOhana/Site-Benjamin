@@ -9,7 +9,7 @@ import clientThomas from '../assets/images/clients/thomas-consultant-business.we
 import clientElodie from '../assets/images/clients/elodie-naturopathe.webp';
 import clientSarah from '../assets/images/clients/sarah-professeur-yoga.webp';
 
-import { PopupModal } from 'react-calendly';
+const PopupModal = React.lazy(() => import('react-calendly').then(module => ({ default: module.PopupModal })));
 
 const Hero = () => {
     const h1Ref = useRef(null);
@@ -190,15 +190,17 @@ const Hero = () => {
                 </svg>
             </div>
 
-            <PopupModal
-                url="https://calendly.com/benjamin-entrepreneuraligne/30min?month=2025-12"
-                rootElement={document.getElementById("root")}
-                text="Réserver mon appel clarté"
-                textColor="#ffffff"
-                color="#A85D42"
-                open={isCalendlyOpen}
-                onModalClose={() => setIsCalendlyOpen(false)}
-            />
+            <React.Suspense fallback={null}>
+                <PopupModal
+                    url="https://calendly.com/benjamin-entrepreneuraligne/30min?month=2025-12"
+                    rootElement={document.getElementById("root")}
+                    text="Réserver mon appel clarté"
+                    textColor="#ffffff"
+                    color="#A85D42"
+                    open={isCalendlyOpen}
+                    onModalClose={() => setIsCalendlyOpen(false)}
+                />
+            </React.Suspense>
         </section >
     );
 };
