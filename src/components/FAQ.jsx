@@ -83,8 +83,8 @@ const FAQ = () => {
             question: "En quoi c'est différent d'un coach business classique ? 🤔",
             answer: [
                 "La plupart des coachs business te donnent une méthode. Moi, je t'aide à trouver ta méthode — celle qui colle à ton énergie, ton rythme, ta vision. ✨",
-                "Mais surtout : on ne travaille pas que sur la stratégie. On travaille aussi sur ce qui bloque à l'intérieur. Les croyances limitantes, le syndrome de l'imposteur, la peur de vendre... 🎯",
-                "Pour ça, je collabore avec des coachs intuitifs et praticiens bien-être. 🤝 Ensemble, on aligne l'extérieur (ton offre, ta visibilité) ET l'intérieur (ta posture, ta légitimité)."
+                "Mais surtout, mon rôle est de t'aider à **transformer ta sensibilité en ta plus grande force**. On ne travaille pas que sur la stratégie, mais aussi sur ce qui bloque à l'intérieur (croyances, syndrome de l'imposteur...). 🎯",
+                "Pour ça, je collabore avec des coachs intuitifs. 🤝 Ensemble, on aligne l'extérieur (ton offre, ta visibilité) ET l'intérieur (ta posture, ta légitimité)."
             ]
         },
         {
