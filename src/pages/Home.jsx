@@ -21,8 +21,8 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Benjamin - Entrepreneur Aligné | Accompagnement pour créatifs, praticiens et coachs</title>
-                <meta name="description" content="Coaching stratégique pour créatifs, praticiens et coachs qui veulent vivre de leur passion — sans vendre leur âme. Développe ton activité avec structure et alignement." />
+                <title>Benjamin - Entrepreneur Aligné | Coaching Créatifs & Praticiens</title>
+                <meta name="description" content="Coaching pour créatifs et praticiens : vis de ta passion sans vendre ton âme. Structure et alignement pour ton activité." />
                 <link rel="canonical" href="https://entrepreneuraligne.fr/" />
             </Helmet>
             <Hero />

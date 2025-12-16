@@ -93,7 +93,7 @@ const Story = () => {
                         </p>
 
                         <p className="text-lg md:text-xl text-zinc-600 leading-relaxed">
-                            Aujourd'hui, c'est ce que je t'aide à faire. Allier ton intuition à une stratégie claire — et libérer ce qui vit en toi.
+                            Aujourd'hui, c'est ce que je t'aide à faire. Allier ton intuition à une stratégie claire — pour <strong>transformer ta sensibilité en ta plus grande force</strong>.
                         </p>
 
                         <p className="text-xl font-heading font-bold text-sienna pt-4">

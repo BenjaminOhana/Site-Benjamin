@@ -246,7 +246,7 @@ const CTA = () => {
                             className="text-5xl font-extrabold text-[#3D5245] tracking-tight mb-8"
                             style={{ letterSpacing: '-0.02em' }}
                         >
-                            Parlons de toi.
+                            Parlons de ton projet.
                         </h2>
 
                         <p
