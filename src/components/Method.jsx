@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Compass, Layers, Sparkles } from 'lucide-react';
 import methodImage from '../assets/images/methode-coaching-alignement-strategie-business.webp';
-import desktopImage from '../assets/images/benjamin-poulet-coach-business-bureau.webp';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,13 +114,9 @@ const Method = () => {
                 <div className="method-image-container w-full md:w-1/2 h-[70dvh] md:h-screen relative md:sticky md:top-0 overflow-hidden">
                     <div className="absolute inset-0">
                         <img
-                            src={desktopImage}
-                            className="w-full h-full object-cover object-[center_25%] scale-110 md:scale-100 md:object-center transition-transform duration-700 hidden md:block"
-                        />
-                        <img
                             src={methodImage}
                             alt="Benjamin travaillant"
-                            className="w-full h-full object-cover object-[center_25%] scale-110 md:hidden"
+                            className="w-full h-full object-cover object-[center_25%] scale-110 md:scale-100 md:object-center transition-transform duration-700"
                         />
                         {/* RIGHT FADE for Desktop blending */}
                         <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-[#FAF8F5] to-transparent hidden md:block"></div>
