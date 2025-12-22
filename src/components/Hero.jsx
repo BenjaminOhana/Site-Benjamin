@@ -138,7 +138,7 @@ const Hero = () => {
                         <p className="text-sm md:text-base text-white/90 mt-3 md:mt-4 opacity-90">
                             <span className="font-medium">30 min offertes</span>
                             <span className="mx-2 text-white/50">·</span>
-                            <span className="italic font-light">Sans engagement</span>
+                            <span className="italic font-light">Voir si le feeling passe</span>
                         </p>
 
                         {/* Trust Bar */}

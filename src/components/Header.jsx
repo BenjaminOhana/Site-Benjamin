@@ -132,7 +132,7 @@ const Header = () => {
                 <p className="text-xs text-anthracite/70 mt-2">
                     <span className="font-medium text-anthracite/90">30 min offertes</span>
                     <span className="mx-1.5 text-sienna/50">·</span>
-                    <span className="italic">Sans engagement</span>
+                    <span className="italic">Voir si le feeling passe</span>
                 </p>
             </div>
 
