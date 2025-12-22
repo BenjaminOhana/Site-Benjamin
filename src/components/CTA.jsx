@@ -226,8 +226,10 @@ const CTA = () => {
                             Réserver mon appel clarté
                         </button>
 
-                        <p className="text-sm text-[#52525B] font-medium mt-5">
-                            Gratuit. Humain. Sans pression.
+                        <p className="text-sm text-[#52525B] mt-4">
+                            <span className="font-semibold text-[#3D5245]">30 min offertes</span>
+                            <span className="mx-2 text-[#B94A2F]/60">·</span>
+                            <span className="italic">0 pression, 0 pitch</span>
                         </p>
                     </div>
                 </div>
@@ -287,8 +289,10 @@ const CTA = () => {
                             Réserver mon appel clarté
                         </button>
 
-                        <p className="text-sm text-[#52525B] font-medium mt-4">
-                            Gratuit. Humain. Sans pression.
+                        <p className="text-base text-[#52525B] mt-5">
+                            <span className="font-semibold text-[#3D5245]">30 min offertes</span>
+                            <span className="mx-2 text-[#B94A2F]/60">·</span>
+                            <span className="italic">0 pression, 0 pitch</span>
                         </p>
                     </div>
 

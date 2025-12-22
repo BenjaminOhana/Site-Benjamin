@@ -135,9 +135,11 @@ const Hero = () => {
                         >
                             En discuter ensemble
                         </button>
-                        <span className="hidden md:block text-sm md:text-base text-white/80 italic">
-                            30 min offertes, pour toi et ta vision.
-                        </span>
+                        <p className="text-sm md:text-base text-white/90 mt-3 md:mt-4">
+                            <span className="font-medium">30 min offertes</span>
+                            <span className="mx-2 text-white/50">·</span>
+                            <span className="text-white/80 italic">0 pression, 0 pitch</span>
+                        </p>
 
                         {/* Trust Bar */}
                         <div className="flex flex-col items-center gap-3 mt-6 md:mt-8 md:flex-row md:bg-black/20 md:backdrop-blur-sm md:border md:border-white/10 md:rounded-full md:px-8 md:py-3 md:transition-all md:hover:bg-black/30">
