@@ -88,11 +88,12 @@ const FAQ = () => {
             ]
         },
         {
-            question: "C'est un investissement important. Comment savoir si c'est fait pour moi ? 💸",
+            question: "Et pour l'investissement... Est-ce que je vais m'y retrouver ? 💸",
             answer: [
-                "C'est une vraie question — et c'est pour ça que l'appel découverte existe. ☕",
-                "30 minutes pour qu'on se parle, qu'on regarde ta situation, et qu'on sente si ça matche. Pas de pression, pas de vente forcée. Si ce n'est pas le bon moment pour toi, je te le dirai. 🙏",
-                "La plupart de mes clients rentabilisent l'accompagnement dès les premières semaines — en clarté mentale, en temps récupéré, et souvent en nouveaux clients."
+                "Question totalement légitime ! La vraie question qu'on oublie souvent est celle-ci : **combien te coûte ton inaction aujourd'hui ?** (En CA perdu, en temps, en charge mentale...). 🤔",
+                "Cet accompagnement sur-mesure est différent de toutes les formations \"génériques\" en ligne. Ce n'est pas une dépense, c'est un investissement à haut rendement. Sur ce type de coaching premium, le retour sur investissement moyen observé est de **x7,2**. 📈",
+                "Nous validerons l'investissement exact ensemble pendant l'appel, car il dépend de ta situation et de la charge de travail.",
+                "Mon objectif est simple : te rendre totalement autonome et qu'en signant tes premiers clients, tu aies déjà remboursé l'intégralité du coaching. Tout ce qui suit, c'est du bonus pour toi et ta liberté. ✨"
             ]
         },
         {
@@ -123,7 +124,7 @@ const FAQ = () => {
         {
             question: "Comment ça se passe concrètement ? 🛠️",
             answer: [
-                "On se retrouve en visio, chaque semaine ou tous les 15 jours. 💻",
+                "On se retrouve en visio, chaque semaine. 💻",
                 "Ce n'est pas juste du conseil. Je travaille avec toi :",
                 "🔍 J'audite ce que tu as déjà (ton site, tes offres, ta com')",
                 "✍️ Je t'aide à rédiger tes textes, tes pages, tes messages",
