@@ -135,10 +135,10 @@ const Hero = () => {
                         >
                             En discuter ensemble
                         </button>
-                        <p className="text-sm md:text-base text-white/90 mt-3 md:mt-4">
+                        <p className="text-sm md:text-base text-white/90 mt-3 md:mt-4 opacity-90">
                             <span className="font-medium">30 min offertes</span>
                             <span className="mx-2 text-white/50">·</span>
-                            <span className="text-white/80 italic">0 pression, 0 pitch</span>
+                            <span className="italic font-light">Sans engagement</span>
                         </p>
 
                         {/* Trust Bar */}

@@ -120,7 +120,7 @@ const Header = () => {
 
             {/* Mobile Sticky CTA */}
             <div
-                className={`md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-cream/90 backdrop-blur-md px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] border-t border-border flex flex-col items-center transition-transform duration-300 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] will-change-transform ${shouldShowSticky ? 'translate-y-0' : 'translate-y-[120%]'
+                className={`md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-cream/90 backdrop-blur-md px-4 pt-3 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border flex flex-col items-center transition-transform duration-300 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] will-change-transform ${shouldShowSticky ? 'translate-y-0' : 'translate-y-[120%]'
                     }`}
             >
                 <button
@@ -132,7 +132,7 @@ const Header = () => {
                 <p className="text-xs text-anthracite/70 mt-2">
                     <span className="font-medium text-anthracite/90">30 min offertes</span>
                     <span className="mx-1.5 text-sienna/50">·</span>
-                    <span className="italic">0 pression, 0 pitch</span>
+                    <span className="italic">Sans engagement</span>
                 </p>
             </div>
 
