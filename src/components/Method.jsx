@@ -251,6 +251,16 @@ const Method = () => {
 
                         {/* Subtle decorative line at the bottom */}
                         <div className="mt-16 w-24 h-1 bg-[#B94A2F]/20 mx-auto rounded-full"></div>
+
+                        {/* Garantie (Simple & Fluid) */}
+                        <div className="mt-8 text-center">
+                            <p className="inline-flex items-center gap-2 text-[#52525B] text-sm md:text-base bg-[#FAF8F5] px-6 py-3 rounded-full border border-[#E5E0D8] shadow-sm">
+                                <span className="text-lg">❤️</span>
+                                <span className="font-medium text-[#3D5245]">Garantie 14 jours</span>
+                                <span className="text-[#B94A2F]/40 mx-1">|</span>
+                                <span className="font-light italic">Satisfait ou remboursé, sans question.</span>
+                            </p>
+                        </div>
                     </div>
 
                 </div>
