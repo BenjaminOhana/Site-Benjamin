@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Compass, Layers, Sparkles } from 'lucide-react';
+import { Compass, Layers, Sparkles, Zap, Video, MessageCircle, Layout } from 'lucide-react';
 import methodImage from '../assets/images/methode-coaching-alignement-strategie-business.webp';
 
 
@@ -191,6 +191,58 @@ const Method = () => {
                                 </p>
                             </div>
                         ))}
+                    </div>
+
+                    {/* L'accompagnement sur-mesure (Détails) */}
+                    <div className="mt-20 md:mt-32 w-full max-w-lg bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-[#E5E0D8]/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] relative z-10 mx-auto">
+                        <h3 className="text-xl font-heading font-bold text-[#3D5245] mb-8 text-center tracking-tight">
+                            L'accompagnement sur-mesure
+                        </h3>
+                        <div className="space-y-6">
+                            {/* Point 1 */}
+                            <div className="flex items-start gap-5">
+                                <div className="p-2 bg-[#E6CCB2]/20 rounded-full text-[#B94A2F]">
+                                    <Zap size={20} strokeWidth={1.5} />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-[#1D1D1F] text-lg leading-tight mb-1">3 Mois de Transformation</p>
+                                    <p className="text-sm text-[#52525B] leading-relaxed">Pour plier en 90 jours ce qui te prendrait 2 ans seul.</p>
+                                </div>
+                            </div>
+
+                            {/* Point 2 */}
+                            <div className="flex items-start gap-5">
+                                <div className="p-2 bg-[#E6CCB2]/20 rounded-full text-[#B94A2F]">
+                                    <Video size={20} strokeWidth={1.5} />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-[#1D1D1F] text-lg leading-tight mb-1">1 Session Stratégique / sem</p>
+                                    <p className="text-sm text-[#52525B] leading-relaxed">On débloque, on décide, tu avances.</p>
+                                </div>
+                            </div>
+
+                            {/* Point 3 */}
+                            <div className="flex items-start gap-5">
+                                <div className="p-2 bg-[#E6CCB2]/20 rounded-full text-[#B94A2F]">
+                                    <MessageCircle size={20} strokeWidth={1.5} />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-[#1D1D1F] text-lg leading-tight mb-1">Accès WhatsApp Illimité 7j/7</p>
+                                    <p className="text-sm text-[#52525B] leading-relaxed">Je suis dans ta poche au moindre doute.</p>
+                                </div>
+                            </div>
+
+                            {/* Point 4 */}
+                            <div className="flex items-start gap-5">
+                                <div className="p-2 bg-[#E6CCB2]/20 rounded-full text-[#B94A2F]">
+                                    <Layout size={20} strokeWidth={1.5} />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-[#1D1D1F] text-lg leading-tight mb-1">Ton Espace Notion Privé</p>
+                                    <p className="text-sm text-[#52525B] leading-relaxed">Tout est centralisé, clair et structuré.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
