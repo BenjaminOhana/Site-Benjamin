@@ -37,7 +37,7 @@ const Testimonials = () => {
         {
             name: "Charlotte",
             job: "Art Thérapeute et Coach holistique",
-            quote: "Mon intuition m'a dit de lui faire confiance. Elle avait raison.",
+            quote: "Mon intuition m'a dit de lui faire confiance. Aujourd'hui, j'ai doublé mes tarifs et j'ai une liste d'attente.",
             image: charlotteImg
         },
         {
@@ -49,7 +49,7 @@ const Testimonials = () => {
         {
             name: "Julien & Anaïs",
             job: "Créateurs de Tambours Chamaniques",
-            quote: "En un seul mot, foncez ! Du marketing sans jamais avoir à vous trahir.",
+            quote: "Du marketing sans se trahir. Résultat : notre agenda est plein pour les 6 prochains mois.",
             image: julienAnaisImg
         }
     ];
