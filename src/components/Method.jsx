@@ -193,36 +193,6 @@ const Method = () => {
                         ))}
                     </div>
 
-                    {/* Concrètement (Format & Durée) */}
-                    <div className="mt-20 md:mt-32 w-full max-w-lg bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-[#E5E0D8]/50 shadow-sm relative z-10 mx-auto">
-                        <h3 className="text-xl font-heading font-bold text-[#3D5245] mb-6 text-center">
-                            Concrètement
-                        </h3>
-                        <div className="space-y-4">
-                            <div className="flex items-start gap-4">
-                                <span className="text-xl">⏳</span>
-                                <div>
-                                    <p className="font-bold text-[#1D1D1F]">3 mois d'accompagnement</p>
-                                    <p className="text-sm text-[#52525B]">Pour transformer ta vision en réalité durable.</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-4">
-                                <span className="text-xl">💻</span>
-                                <div>
-                                    <p className="font-bold text-[#1D1D1F]">1 session / semaine</p>
-                                    <p className="text-sm text-[#52525B]">En visio, focus sur tes priorités du moment.</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-4">
-                                <span className="text-xl">💬</span>
-                                <div>
-                                    <p className="font-bold text-[#1D1D1F]">Suivi WhatsApp 7j/7</p>
-                                    <p className="text-sm text-[#52525B]">Je ne te lâche pas entre les séances.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
