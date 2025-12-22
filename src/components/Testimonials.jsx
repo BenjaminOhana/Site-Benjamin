@@ -35,21 +35,24 @@ const Testimonials = () => {
 
     const testimonials = [
         {
+            name: "Noémie",
+            job: "Acupunctrice",
+            quote: "Benjamin m'a aidée à voir clair ✨. En 1 mois, j'avais enfin une direction !",
+            result: "🚀 Offre Premium lancée & Premiers clients signés",
+            image: noemieImg
+        },
+        {
             name: "Charlotte",
             job: "Art Thérapeute et Coach holistique",
             quote: "Mon intuition m'a dit de lui faire confiance. Elle avait raison.",
+            result: "📈 Tarifs doublés & Liste d'attente",
             image: charlotteImg
-        },
-        {
-            name: "Noémie",
-            job: "Acupunctrice",
-            quote: "Benjamin m'a aidée à voir clair ✨. En 1 mois, j'avais enfin une direction et mes premiers vrais clients !",
-            image: noemieImg
         },
         {
             name: "Julien & Anaïs",
             job: "Créateurs de Tambours Chamaniques",
             quote: "En un seul mot, foncez ! Du marketing sans jamais avoir à vous trahir.",
+            result: "🌍 Écosystème de vente en ligne créé (Fini la dépendance aux salons)",
             image: julienAnaisImg
         }
     ];
@@ -197,9 +200,16 @@ const Testimonials = () => {
                                 />
 
                                 {/* Quote */}
-                                <p className="text-xl md:text-4xl lg:text-xl text-[#1D1D1F] italic mb-6 md:mb-10 lg:mb-6 leading-relaxed font-heading">
-                                    « {t.quote} »
-                                </p>
+                                <blockquote className="text-xl md:text-2xl text-[#1D1D1F] font-heading font-medium leading-relaxed mb-6">
+                                    "{t.quote}"
+                                </blockquote>
+
+                                {/* Résultat Concret (Badge Premium) */}
+                                <div className="inline-flex items-center gap-2 bg-[#B94A2F]/5 border border-[#B94A2F]/10 px-4 py-2 rounded-full mb-8">
+                                    <p className="text-sm md:text-base font-medium text-[#B94A2F]">
+                                        {t.result}
+                                    </p>
+                                </div>
 
                                 {/* Name & Job */}
                                 <div>
