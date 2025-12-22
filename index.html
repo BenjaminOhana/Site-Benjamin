@@ -32,48 +32,106 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Benjamin - Entrepreneur Aligné",
-      "image": "https://entrepreneuraligne.fr/og-social-v5.png",
-      "url": "https://entrepreneuraligne.fr/",
-      "telephone": "+33658842511",
-      "email": "benjamin@entrepreneuraligne.fr",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Thionville",
-        "postalCode": "57100",
-        "addressCountry": "FR"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Thionville" },
-        { "@type": "City", "name": "Montpellier" },
-        { "@type": "AdministrativeArea", "name": "Grand Est" },
-        { "@type": "Country", "name": "France" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Services de Coaching",
-        "itemListElement": [
-          {
-            "@type": "Service",
-            "name": "Accompagnement Entrepreneur Aligné",
-            "description": "Accompagnement et Coaching pour entrepreneurs sensibles. Développe ton activité avec structure, visibilité et alignement, sans marketing agressif.",
-            "serviceType": "Coaching Professionnel",
-            "audience": {
-              "@type": "Audience",
-              "audienceType": [
-                "Praticiens bien-être (sophrologues, coachs, naturopathes, énergéticiens)",
-                "Créatifs freelance (photographes, vidéastes, designers)",
-                "Entrepreneurs sensibles"
-              ]
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://entrepreneuraligne.fr/#benjamin",
+          "name": "Benjamin Poulet",
+          "jobTitle": "Coach Business & Stratège",
+          "url": "https://entrepreneuraligne.fr/",
+          "image": "https://entrepreneuraligne.fr/og-social-v5.png",
+          "description": "Coach pour entrepreneurs sensibles et ambitieux. J'aide les créatifs et praticiens à structurer leur activité sans sacrifier leur authenticité.",
+          "sameAs": [
+            "https://www.instagram.com/benjaminpoulet_/",
+            "https://www.linkedin.com/in/benjamin-poulet-7b5a9b38b/"
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://entrepreneuraligne.fr/#coaching",
+          "name": "Accompagnement Entrepreneur Aligné",
+          "provider": { "@id": "https://entrepreneuraligne.fr/#benjamin" },
+          "serviceType": "Coaching Business Premium",
+          "description": "Accompagnement sur-mesure de 3 mois pour structurer ton offre, trouver tes clients et vivre de ta passion. Inclus : 1 session stratégique/semaine, Support WhatsApp 7j/7, Espace Notion Privé.",
+          "areaServed": { "@type": "Country", "name": "France" },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Entrepreneurs sensibles, Praticiens bien-être, Créatifs"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Détails de l'accompagnement",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Coaching Individuel 3 Mois"
+                },
+                "priceSpecification": {
+                   "@type": "PriceSpecification",
+                   "minPrice": "977",
+                   "priceCurrency": "EUR"
+                }
+              }
+            ]
+          },
+          "termsOfService": "Garantie 14 jours satisfait ou remboursé.",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "27"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Noémie" },
+              "reviewBody": "Benjamin m'a aidée à voir clair. En 1 mois, j'avais enfin une direction ! Résultat : Offre Premium lancée & Premiers clients signés.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Charlotte" },
+              "reviewBody": "Mon intuition m'a dit de lui faire confiance. Aujourd'hui, j'ai doublé mes tarifs et j'ai une liste d'attente.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Julien & Anaïs" },
+              "reviewBody": "Du marketing sans jamais avoir à se trahir. Résultat : Écosystème de vente en ligne créé et fin de la dépendance aux salons.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
             }
-          }
-        ]
-      },
-      "sameAs": [
-        "https://www.instagram.com/benjaminpoulet_/", 
-        "https://www.linkedin.com/in/benjamin-poulet-7b5a9b38b/"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Est-ce que je vais m'y retrouver financièrement (ROI) ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "C'est un investissement à haut rendement. Sur ce type de coaching premium, le retour sur investissement moyen observé est de x7,2. L'objectif est qu'en signant vos 2 ou 3 premiers clients, vous ayez déjà remboursé l'intégralité du coaching."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quel est le format de l'accompagnement ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Il s'agit d'un accompagnement de 3 mois incluant une session stratégique en visio chaque semaine, un accès WhatsApp illimité 7j/7 et un espace Notion privé pour centraliser vos ressources."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Y a-t-il une garantie ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, une garantie 'Satisfait ou remboursé' de 14 jours est incluse. Vous pouvez tester l'accompagnement sans risque."
+              }
+            }
+          ]
+        }
       ]
     }
     </script>
